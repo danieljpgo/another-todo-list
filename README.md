@@ -1,8 +1,8 @@
 TODO
 
 - ~~Limpar CRA~~
-- Eslint com typescript
-- Craco e Tailwind
+- ~~Eslint com typescript~~
+- ~~Craco e Tailwind~~
 - Estrutura
 - Provider com Context
 - Layout
