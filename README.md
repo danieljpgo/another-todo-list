@@ -1,6 +1,6 @@
 TODO
 
-- Limpar CRA
+- ~~Limpar CRA~~
 - Eslint com typescript
 - Craco e Tailwind
 - Estrutura
