@@ -1,6 +1,8 @@
+import Panel from './pages/Panel';
+
 const App = () => (
   <div>
-    Hello World
+    <Panel />
   </div>
 );
 

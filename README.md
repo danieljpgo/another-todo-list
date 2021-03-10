@@ -3,10 +3,10 @@ TODO
 - ~~Limpar CRA~~
 - ~~Eslint com typescript~~
 - ~~Craco e Tailwind~~
-- Estrutura
-- Provider com Context
-- Layout
+- ~~Estrutura~~
+- ~~Provider com Context~~
 - TDD
+- Layout
 
 ...
 - Deploy
