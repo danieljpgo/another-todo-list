@@ -2,9 +2,9 @@ import * as React from 'react';
 import { Children } from '../../types/children';
 
 type Task = {
-  id: string,
-  description: string,
-  completed: boolean,
+  id: string;
+  description: string;
+  completed: boolean;
 };
 
 const initialState: Task[] = [];
@@ -28,16 +28,10 @@ function taskReducer(state: typeof initialState = initialState, action: TaskActi
       ];
 
     case 'done':
-      return state.map((task) => (task.id === action.id
-        ? { ...task, complete: true }
-        : task
-      ));
+      return state.map((task) => (task.id === action.id ? { ...task, complete: true } : task));
 
     case 'undone':
-      return state.map((task) => (task.id === action.id
-        ? { ...task, complete: false }
-        : task
-      ));
+      return state.map((task) => (task.id === action.id ? { ...task, complete: false } : task));
 
     case 'delete':
       return state.filter((task) => task.id !== action.id);
@@ -71,18 +65,27 @@ const useTasks = () => {
   return context;
 };
 
+type TodoTaskActions = Exclude<TaskActions, { type: 'undone' }>;
 const useTodoTask = () => {
   const [tasks, dispatch] = useTasks();
+  const todo = tasks.filter((task) => !task.completed);
 
-  const todo = tasks.filter((task) => task.completed);
-  return [todo, dispatch];
+  function todoDispatch(actions: TodoTaskActions) {
+    return dispatch(actions);
+  }
+
+  return [todo, todoDispatch];
 };
 
+type DoneTaskActions = Exclude<TaskActions, { type: 'add' } | { type: 'done' } >;
 const useDoneTask = () => {
   const [tasks, dispatch] = useTasks();
+  const done = tasks.filter((task) => task.completed);
 
-  const done = tasks.filter((task) => !task.completed);
-  return [done, dispatch];
+  function doneDispatch(actions: DoneTaskActions) {
+    return dispatch(actions);
+  }
+  return [done, doneDispatch];
 };
 
 export { TaskProvider, useTodoTask, useDoneTask };
