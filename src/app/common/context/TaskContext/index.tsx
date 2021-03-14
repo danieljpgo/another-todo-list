@@ -69,23 +69,31 @@ type TodoTaskActions = Exclude<TaskActions, { type: 'undone' }>;
 const useTodoTask = () => {
   const [tasks, dispatch] = useTasks();
   const todo = tasks.filter((task) => !task.completed);
+  const done = tasks.filter((task) => task.completed);
+
+  const status = done.length > 3 ? 'go have fun' : "let's do some tasks";
 
   function todoDispatch(actions: TodoTaskActions) {
     return dispatch(actions);
   }
 
-  return [todo, todoDispatch] as const;
+  return [{ status, list: todo }, todoDispatch] as const;
 };
 
 type DoneTaskActions = Exclude<TaskActions, { type: 'add' } | { type: 'done' }>;
 const useDoneTask = () => {
   const [tasks, dispatch] = useTasks();
   const done = tasks.filter((task) => task.completed);
+  const todo = tasks.filter((task) => !task.completed);
+
+  const status = todo.length > 3 ? "you're completing some task, right?" : 'there must be a task somewhere';
 
   function doneDispatch(actions: DoneTaskActions) {
     return dispatch(actions);
   }
-  return [done, doneDispatch] as const;
+  return [{ status, list: done }, doneDispatch] as const;
 };
 
 export { TaskProvider, useTodoTask, useDoneTask };
+
+// is there any task there

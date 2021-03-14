@@ -8,6 +8,12 @@ function renderWithProvider(children: React.ReactNode) {
   render(<TaskProvider>{children}</TaskProvider>);
 }
 
+test('fallback messages for empty tasks list', () => {
+  renderWithProvider(<App />);
+  expect(screen.getByText(/let's do some tasks/i)).toBeInTheDocument();
+  expect(screen.getByText(/there must be a task somewhere/i)).toBeInTheDocument();
+});
+
 test('add new task', () => {
   renderWithProvider(<App />);
   userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
@@ -89,4 +95,50 @@ test('delete a finish tasks', async () => {
 
   expect(within(todo).queryByText(/clean the house/i)).not.toBeInTheDocument();
   expect(within(done).queryByText(/clean the house/i)).not.toBeInTheDocument();
+});
+
+test('different message for empty task list after completing 3 tasks', () => {
+  renderWithProvider(<App />);
+  expect(screen.getByText(/let's do some tasks/i)).toBeInTheDocument();
+  expect(screen.getByText(/there must be a task somewhere/i)).toBeInTheDocument();
+
+  userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
+  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.click(screen.getByRole('button', { name: /complete task make dinner/i }));
+
+  userEvent.type(screen.getByPlaceholderText(/new task/i), 'clean the house');
+  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.click(screen.getByRole('button', { name: /complete task clean the house/i }));
+
+  userEvent.type(screen.getByPlaceholderText(/new task/i), 'walk the dog');
+  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.click(screen.getByRole('button', { name: /complete task walk the dog/i }));
+
+  userEvent.type(screen.getByPlaceholderText(/new task/i), 'wash the clothes');
+  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.click(screen.getByRole('button', { name: /complete task wash the clothes/i }));
+
+  expect(screen.getByText(/go have fun/i)).toBeInTheDocument();
+  expect(screen.queryByText(/there must be a task somewhere/i)).not.toBeInTheDocument();
+});
+
+test('different message for empty finish task list after add new 3 tasks', () => {
+  renderWithProvider(<App />);
+  expect(screen.getByText(/let's do some tasks/i)).toBeInTheDocument();
+  expect(screen.getByText(/there must be a task somewhere/i)).toBeInTheDocument();
+
+  userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
+  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+
+  userEvent.type(screen.getByPlaceholderText(/new task/i), 'clean the house');
+  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+
+  userEvent.type(screen.getByPlaceholderText(/new task/i), 'walk the dog');
+  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+
+  userEvent.type(screen.getByPlaceholderText(/new task/i), 'wash the clothes');
+  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+
+  expect(screen.queryByText(/let's do some tasks/i)).not.toBeInTheDocument();
+  expect(screen.getByText(/you're completing some task, right?/i)).toBeInTheDocument();
 });

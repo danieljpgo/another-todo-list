@@ -5,8 +5,10 @@ TODO
 - ~~Craco e Tailwind~~
 - ~~Estrutura~~
 - ~~Provider com Context~~
-- TDD
+- ~~TDD~~
+- ~~Acessibilidade~~
 - Layout
+- Estilização
 
 ...
 - Deploy

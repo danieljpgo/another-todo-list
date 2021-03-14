@@ -5,7 +5,7 @@ import { useTodoTask } from '../../../common/context/TaskContext';
 
 const Todo = () => {
   const [input, setInput] = React.useState('');
-  const [todo, dispatch] = useTodoTask();
+  const [{ list, status }, dispatch] = useTodoTask();
 
   function handleDoneTask(id: string) {
     dispatch({ type: 'done', id });
@@ -24,7 +24,7 @@ const Todo = () => {
   return (
     <div>
       <ul aria-label="todo tasks">
-        {todo.map((task) => (
+        {list.map((task) => (
           <li key={task.id}>
             <p>{task.description}</p>
             <button
@@ -48,7 +48,7 @@ const Todo = () => {
           </li>
         ))}
       </ul>
-      {!todo.length && <p>No task todo</p>}
+      {!list.length && <p>{status}</p>}
       <div>
         <form onSubmit={(e) => handleSubmit(e, input)}>
           <label htmlFor="new_task">a</label>

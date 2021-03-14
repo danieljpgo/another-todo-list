@@ -3,7 +3,7 @@ import DoneIcon from '../../../common/components/DoneIcon';
 import { useDoneTask } from '../../../common/context/TaskContext';
 
 const Done = () => {
-  const [done, dispatch] = useDoneTask();
+  const [{ list, status }, dispatch] = useDoneTask();
 
   function handleUndoneTask(id: string) {
     dispatch({ type: 'undone', id });
@@ -17,7 +17,7 @@ const Done = () => {
     <div>
       <div>
         <ul aria-label="done tasks">
-          {done.map((task) => (
+          {list.map((task) => (
             <li key={task.id}>
               <p>
                 {task.description}
@@ -39,6 +39,8 @@ const Done = () => {
             </li>
           ))}
         </ul>
+
+        {!list.length && <p>{status}</p>}
       </div>
     </div>
   );
