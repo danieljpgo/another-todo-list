@@ -19,7 +19,7 @@ const Input = (props: InputProps) => {
       type={type}
       value={value}
       placeholder={placeholder}
-      className="block w-full border-none rounded-md shadow-md focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+      className="block w-full text-gray-400 placeholder-gray-400 transition-all duration-200 border-none rounded-md shadow-md outline-none focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200"
       onChange={onChange}
     />
   );
