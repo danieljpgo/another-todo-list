@@ -1,9 +1,9 @@
 import Panel from './pages/Panel';
 
 const App = () => (
-  <div>
+  <main>
     <Panel />
-  </div>
+  </main>
 );
 
 export default App;

@@ -74,10 +74,10 @@ const useTodoTask = () => {
     return dispatch(actions);
   }
 
-  return [todo, todoDispatch];
+  return [todo, todoDispatch] as const;
 };
 
-type DoneTaskActions = Exclude<TaskActions, { type: 'add' } | { type: 'done' } >;
+type DoneTaskActions = Exclude<TaskActions, { type: 'add' } | { type: 'done' }>;
 const useDoneTask = () => {
   const [tasks, dispatch] = useTasks();
   const done = tasks.filter((task) => task.completed);
@@ -85,7 +85,7 @@ const useDoneTask = () => {
   function doneDispatch(actions: DoneTaskActions) {
     return dispatch(actions);
   }
-  return [done, doneDispatch];
+  return [done, doneDispatch] as const;
 };
 
 export { TaskProvider, useTodoTask, useDoneTask };
