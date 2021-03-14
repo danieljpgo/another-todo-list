@@ -1,7 +1,7 @@
 import Panel from './pages/Panel';
 
 const App = () => (
-  <main>
+  <main className="grid h-screen place-items-center">
     <Panel />
   </main>
 );

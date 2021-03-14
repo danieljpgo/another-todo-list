@@ -95,5 +95,3 @@ const useDoneTask = () => {
 };
 
 export { TaskProvider, useTodoTask, useDoneTask };
-
-// is there any task there

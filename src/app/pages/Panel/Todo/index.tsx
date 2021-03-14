@@ -2,9 +2,9 @@ import * as React from 'react';
 import DeleteIcon from '../../../common/components/DeleteIcon';
 import DoneIcon from '../../../common/components/DoneIcon';
 import { useTodoTask } from '../../../common/context/TaskContext';
+import Form from './Form';
 
 const Todo = () => {
-  const [input, setInput] = React.useState('');
   const [{ list, status }, dispatch] = useTodoTask();
 
   function handleDoneTask(id: string) {
@@ -15,15 +15,13 @@ const Todo = () => {
     dispatch({ type: 'delete', id });
   }
 
-  function handleSubmit(e:React.FormEvent<HTMLFormElement>, description: string) {
-    e.preventDefault();
+  function handleAddTask(description: string) {
     dispatch({ type: 'add', description });
-    setInput('');
   }
 
   return (
-    <div>
-      <ul aria-label="todo tasks">
+    <div className="h-full max-h-96">
+      <ul aria-label="todo tasks" className="h-full overflow-auto">
         {list.map((task) => (
           <li key={task.id}>
             <p>{task.description}</p>
@@ -50,17 +48,7 @@ const Todo = () => {
       </ul>
       {!list.length && <p>{status}</p>}
       <div>
-        <form onSubmit={(e) => handleSubmit(e, input)}>
-          <label htmlFor="new_task">a</label>
-          <input
-            id="new_task"
-            name="new_task"
-            type="text"
-            value={input}
-            placeholder="new task"
-            onChange={(e) => setInput(e.currentTarget.value)}
-          />
-        </form>
+        <Form onSubmit={(description) => handleAddTask(description)} />
       </div>
     </div>
   );
