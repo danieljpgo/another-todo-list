@@ -1,13 +1,14 @@
 const DeleteIcon = () => (
   <svg
-    focusable="false"
-    aria-hidden="true"
     x="0px"
     y="0px"
     viewBox="0 0 507.2 507.2"
     xmlSpace="preserve"
-    style={{ 'enable-background': 'new 0 0 507.2 507.2' }}
+    focusable="false"
+    // aria-hidden="true"
+    // aria-labelledby="donde icon"
   >
+    {/* <title id="delete icon">delete</title> */}
     <circle
       style={{ fill: '#F15249' }}
       cx="253.6"

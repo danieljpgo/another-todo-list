@@ -1,13 +1,14 @@
 const DoneIcon = () => (
   <svg
-    focusable="false"
-    aria-hidden="true"
     y="0px"
     x="0px"
     viewBox="0 0 507.2 507.2"
-    style={{ 'enable-background': 'new 0 0 507.2 507.2' }}
     xmlSpace="preserve"
+    focusable="false"
+    // aria-hidden="true"
+    // aria-labelledby="donde icon"
   >
+    {/* <title id="donde icon">done</title> */}
     <circle style={{ fill: '#32BA7C' }} cx="253.6" cy="253.6" r="253.6" />
     <path style={{ fill: '#0AA06E' }} d="M188.8,368l130.4,130.4c108-28.8,188-127.2,188-244.8c0-2.4,0-4.8,0-7.2L404.8,152L188.8,368z" />
     <g>

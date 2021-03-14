@@ -28,10 +28,10 @@ function taskReducer(state: typeof initialState = initialState, action: TaskActi
       ];
 
     case 'done':
-      return state.map((task) => (task.id === action.id ? { ...task, complete: true } : task));
+      return state.map((task) => (task.id === action.id ? { ...task, completed: true } : task));
 
     case 'undone':
-      return state.map((task) => (task.id === action.id ? { ...task, complete: false } : task));
+      return state.map((task) => (task.id === action.id ? { ...task, completed: false } : task));
 
     case 'delete':
       return state.filter((task) => task.id !== action.id);

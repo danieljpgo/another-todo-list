@@ -2,10 +2,10 @@ import Done from './Done';
 import Todo from './Todo';
 
 const Panel = () => (
-  <div>
-    <Done />
+  <>
     <Todo />
-  </div>
+    <Done />
+  </>
 );
 
 export default Panel;
