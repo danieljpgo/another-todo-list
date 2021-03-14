@@ -9,7 +9,7 @@ TODO
 - ~~Acessibilidade~~
 - Layout
 - Estilização
-
+- Local Storage - Text field e tasks
 ...
 - Deploy
 - Documentação

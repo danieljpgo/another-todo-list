@@ -21,7 +21,7 @@ const Form = ({ onSubmit }: FormProps) => {
         name="new_task"
         type="text"
         value={input}
-        placeholder="new task"
+        placeholder="New task"
         onChange={(e) => setInput(e.currentTarget.value)}
       />
     </form>

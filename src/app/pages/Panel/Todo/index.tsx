@@ -1,8 +1,11 @@
 import * as React from 'react';
 import DeleteIcon from '../../../common/components/DeleteIcon';
 import DoneIcon from '../../../common/components/DoneIcon';
-import { useTodoTask } from '../../../common/context/TaskContext';
+import IconButton from '../../../common/components/IconButton';
+import List from '../../../common/components/List';
+import Task from '../../../common/components/Task';
 import Form from './Form';
+import { useTodoTask } from '../../../common/context/TaskContext';
 
 const Todo = () => {
   const [{ list, status }, dispatch] = useTodoTask();
@@ -20,34 +23,34 @@ const Todo = () => {
   }
 
   return (
-    <div className="h-full max-h-96">
-      <ul aria-label="todo tasks" className="h-full overflow-auto">
+    <div className="grid gap-4">
+      <List
+        message={status}
+        aria-label="todo tasks"
+      >
         {list.map((task) => (
-          <li key={task.id}>
-            <p>{task.description}</p>
-            <button
-              type="button"
+          <Task
+            key={task.id}
+            description={task.description}
+          >
+            <IconButton
               title="complete task"
               aria-label={`complete task ${task.description}`}
-              className="w-2"
               onClick={() => handleDoneTask(task.id)}
             >
               <DoneIcon />
-            </button>
-            <button
-              type="button"
+            </IconButton>
+            <IconButton
               title="delete task"
               aria-label={`delete task ${task.description}`}
-              className="w-2"
               onClick={() => handleDeleteTask(task.id)}
             >
               <DeleteIcon />
-            </button>
-          </li>
+            </IconButton>
+          </Task>
         ))}
-      </ul>
-      {!list.length && <p>{status}</p>}
-      <div>
+      </List>
+      <div className="px-2">
         <Form onSubmit={(description) => handleAddTask(description)} />
       </div>
     </div>

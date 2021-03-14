@@ -1,5 +1,8 @@
+import IconButton from '../../../common/components/IconButton';
 import DeleteIcon from '../../../common/components/DeleteIcon';
 import DoneIcon from '../../../common/components/DoneIcon';
+import List from '../../../common/components/List';
+import Task from '../../../common/components/Task';
 import { useDoneTask } from '../../../common/context/TaskContext';
 
 const Done = () => {
@@ -14,31 +17,33 @@ const Done = () => {
   }
 
   return (
-    <div className="h-full max-h-96">
-      <ul aria-label="done tasks" className="h-full overflow-y-auto">
+    <div className="">
+      <List
+        message={status}
+        aria-label="done tasks"
+      >
         {list.map((task) => (
-          <li key={task.id}>
-            <p>
-              {task.description}
-            </p>
-            <button
-              type="button"
+          <Task
+            key={task.id}
+            description={task.description}
+          >
+            <IconButton
+              title="undone task"
               aria-label={`undone task ${task.description}`}
               onClick={() => handleUndoneTask(task.id)}
             >
               <DoneIcon />
-            </button>
-            <button
-              type="button"
+            </IconButton>
+            <IconButton
+              title="delete task"
               aria-label={`delete task ${task.description}`}
               onClick={() => handleDeleteTask(task.id)}
             >
               <DeleteIcon />
-            </button>
-          </li>
+            </IconButton>
+          </Task>
         ))}
-      </ul>
-      {!list.length && <p>{status}</p>}
+      </List>
     </div>
   );
 };

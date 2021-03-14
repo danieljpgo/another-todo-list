@@ -5,7 +5,10 @@ module.exports = {
     extend: {},
   },
   variants: {
-    extend: {},
+    extend: {
+      boxShadow: ['active', 'disabled'],
+      scale: ['active'],
+    },
   },
   plugins: [
     require('@tailwindcss/forms'),
