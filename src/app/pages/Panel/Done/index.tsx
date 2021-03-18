@@ -1,15 +1,16 @@
+import { useDoneTask } from '../../../common/context/TaskContext';
 import IconButton from '../../../common/components/IconButton';
 import DeleteIcon from '../../../common/components/DeleteIcon';
 import DoneIcon from '../../../common/components/DoneIcon';
 import List from '../../../common/components/List';
 import Task from '../../../common/components/Task';
-import { useDoneTask } from '../../../common/context/TaskContext';
+// import Text from '../../../common/components/Text';
 
 const Done = () => {
   const [{ list, status }, dispatch] = useDoneTask();
 
-  function handleUndoneTask(id: string) {
-    dispatch({ type: 'undone', id });
+  function handleUndoTask(id: string) {
+    dispatch({ type: 'undo', id });
   }
 
   function handleDeleteTask(id: string) {
@@ -17,7 +18,8 @@ const Done = () => {
   }
 
   return (
-    <div className="">
+    <div className="grid content-end gap-4 auto-rows-min">
+      {/* <Text variant="title">Done</Text> */}
       <List
         message={status}
         aria-label="done tasks"
@@ -28,9 +30,9 @@ const Done = () => {
             description={task.description}
           >
             <IconButton
-              title="undone task"
-              aria-label={`undone task ${task.description}`}
-              onClick={() => handleUndoneTask(task.id)}
+              title="undo task"
+              aria-label={`undo task ${task.description}`}
+              onClick={() => handleUndoTask(task.id)}
             >
               <DoneIcon />
             </IconButton>
@@ -44,6 +46,9 @@ const Done = () => {
           </Task>
         ))}
       </List>
+      <div>
+        {/* <button cl>clear</button> */}
+      </div>
     </div>
   );
 };

@@ -1,14 +1,19 @@
 import * as React from 'react';
+import { useTodoTask } from '../../../common/context/TaskContext';
 import DeleteIcon from '../../../common/components/DeleteIcon';
 import DoneIcon from '../../../common/components/DoneIcon';
 import IconButton from '../../../common/components/IconButton';
 import List from '../../../common/components/List';
 import Task from '../../../common/components/Task';
 import Form from './Form';
-import { useTodoTask } from '../../../common/context/TaskContext';
+// import Text from '../../../common/components/Text';
 
 const Todo = () => {
   const [{ list, status }, dispatch] = useTodoTask();
+
+  function handleAddTask(description: string) {
+    dispatch({ type: 'add', description });
+  }
 
   function handleDoneTask(id: string) {
     dispatch({ type: 'done', id });
@@ -18,12 +23,9 @@ const Todo = () => {
     dispatch({ type: 'delete', id });
   }
 
-  function handleAddTask(description: string) {
-    dispatch({ type: 'add', description });
-  }
-
   return (
-    <div className="grid gap-4">
+    <div className="grid content-end gap-4 auto-rows-min">
+      {/* <Text variant="title">To Do</Text> */}
       <List
         message={status}
         aria-label="todo tasks"
@@ -50,7 +52,7 @@ const Todo = () => {
           </Task>
         ))}
       </List>
-      <div className="px-2">
+      <div>
         <Form onSubmit={(description) => handleAddTask(description)} />
       </div>
     </div>

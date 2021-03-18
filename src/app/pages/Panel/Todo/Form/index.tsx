@@ -8,21 +8,25 @@ interface FormProps {
 const Form = ({ onSubmit }: FormProps) => {
   const [input, setInput] = React.useState('');
 
-  function handleSubmit(e:React.FormEvent<HTMLFormElement>, description: string) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>, description: string) {
     e.preventDefault();
     onSubmit(description);
     setInput('');
   }
 
+  function handleInputChange(description: string) {
+    setInput(description);
+  }
+
   return (
     <form onSubmit={(e) => handleSubmit(e, input)}>
       <Input
-        id="new_task"
-        name="new_task"
+        id="newTask"
+        name="newTask"
         type="text"
         value={input}
         placeholder="New task"
-        onChange={(e) => setInput(e.currentTarget.value)}
+        onChange={(e) => handleInputChange(e.currentTarget.value)}
       />
     </form>
   );
