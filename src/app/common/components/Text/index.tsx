@@ -1,9 +1,9 @@
 import { Children } from '../../types/children';
 
 const variants = {
-  sub: 'text-gray-400 text-xs',
+  sub: 'text-gray-400 text-sm',
   base: 'text-gray-400 text-base',
-  title: 'text-gray-400 text-lg',
+  title: 'text-gray-400 text-xl font-bold',
 } as const;
 
 interface TextProps extends Children{

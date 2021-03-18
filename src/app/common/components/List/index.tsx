@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Text from '../Text';
 
 interface ListProps {
   message: string;
@@ -8,13 +9,19 @@ interface ListProps {
 
 const List = ({ message, 'aria-label': ariaLabel, children }: ListProps) => (
   <>
-    <ul
-      aria-label={ariaLabel}
-      className="grid gap-4 px-2 overflow-auto border-t border-b border-gray-300 auto-rows-min h-72"
-    >
-      {children}
-    </ul>
-    {!children.length && <p>{message}</p>}
+    <div className="px-3 py-5 bg-white rounded-md shadow-md max-h-72">
+      <ul
+        aria-label={ariaLabel}
+        className={`grid h-full gap-4 px-2 overflow-y-auto ${children.length > 4 && 'border-t border-b border-gray-100'}`}
+      >
+        {children}
+        {!children.length && (
+        <div className="text-center">
+          <Text variant="sub">{message}</Text>
+        </div>
+        )}
+      </ul>
+    </div>
   </>
 );
 

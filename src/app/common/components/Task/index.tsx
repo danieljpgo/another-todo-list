@@ -6,11 +6,13 @@ interface TaskProps extends Children {
 }
 
 const Task = ({ description, children }: TaskProps) => (
-  <li className="flex items-center w-full gap-2">
-    <div className="w-full px-4 py-2 bg-white rounded-md shadow-md">
+  <li className="grid items-center w-full grid-cols-5 gap-2 px-4 py-2 bg-white rounded-md shadow-md">
+    <div className="col-start-1 col-end-4">
       <Text>{description}</Text>
     </div>
-    {children}
+    <div className="flex justify-between grid-cols-2 col-start-5 col-end-5 gap-2 opacity-0 hover:opacity-100 focus-within:opacity-100">
+      {children}
+    </div>
   </li>
 );
 
