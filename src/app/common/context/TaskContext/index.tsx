@@ -12,7 +12,7 @@ const initialState: Task[] = [];
 type TaskActions =
   | { type: 'add'; description: string }
   | { type: 'done'; id: string }
-  | { type: 'undone'; id: string }
+  | { type: 'undo'; id: string }
   | { type: 'delete'; id: string };
 
 function taskReducer(state: typeof initialState = initialState, action: TaskActions) {
@@ -30,7 +30,7 @@ function taskReducer(state: typeof initialState = initialState, action: TaskActi
     case 'done':
       return state.map((task) => (task.id === action.id ? { ...task, completed: true } : task));
 
-    case 'undone':
+    case 'undo':
       return state.map((task) => (task.id === action.id ? { ...task, completed: false } : task));
 
     case 'delete':
@@ -65,7 +65,7 @@ const useTasks = () => {
   return context;
 };
 
-type TodoTaskActions = Exclude<TaskActions, { type: 'undone' }>;
+type TodoTaskActions = Exclude<TaskActions, { type: 'undo' }>;
 const useTodoTask = () => {
   const [tasks, dispatch] = useTasks();
   const todo = tasks.filter((task) => !task.completed);
