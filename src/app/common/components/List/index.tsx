@@ -16,9 +16,9 @@ const List = ({ message, 'aria-label': ariaLabel, children }: ListProps) => (
       >
         {children}
         {!children.length && (
-        <div className="text-center">
+        <li className="text-center">
           <Text variant="sub">{message}</Text>
-        </div>
+        </li>
         )}
       </ul>
     </div>

@@ -4,6 +4,7 @@ import DeleteIcon from '../../../common/components/DeleteIcon';
 import DoneIcon from '../../../common/components/DoneIcon';
 import List from '../../../common/components/List';
 import Task from '../../../common/components/Task';
+import Text from '../../../common/components/Text';
 // import Text from '../../../common/components/Text';
 
 const Done = () => {
@@ -15,6 +16,10 @@ const Done = () => {
 
   function handleDeleteTask(id: string) {
     dispatch({ type: 'delete', id });
+  }
+
+  function handleClearTasks() {
+    dispatch({ type: 'clear' });
   }
 
   return (
@@ -46,8 +51,17 @@ const Done = () => {
           </Task>
         ))}
       </List>
-      <div>
-        {/* <button cl>clear</button> */}
+      <div className="flex justify-end">
+        <button
+          type="button"
+          title="clear finish tasks"
+          className="transition-all transform scale-100 duration-200 px-10 py-2.5 uppercase bg-white rounded-lg shadow-md outline-none focus:outline-none focus:ring focus:ring-blue-200 active:shadow active:scale-95"
+          onClick={() => handleClearTasks()}
+        >
+          <Text>
+            clear
+          </Text>
+        </button>
       </div>
     </div>
   );

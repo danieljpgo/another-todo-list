@@ -13,7 +13,8 @@ type TaskActions =
   | { type: 'add'; description: string }
   | { type: 'done'; id: string }
   | { type: 'undo'; id: string }
-  | { type: 'delete'; id: string };
+  | { type: 'delete'; id: string }
+  | { type: 'clear' };
 
 function taskReducer(state: typeof initialState = initialState, action: TaskActions) {
   switch (action.type) {
@@ -35,6 +36,9 @@ function taskReducer(state: typeof initialState = initialState, action: TaskActi
 
     case 'delete':
       return state.filter((task) => task.id !== action.id);
+
+    case 'clear':
+      return state.filter((task) => !task.completed);
 
     default:
       throw new Error(`Unhandled action type: ${action}`);
@@ -65,7 +69,7 @@ const useTasks = () => {
   return context;
 };
 
-type TodoTaskActions = Exclude<TaskActions, { type: 'undo' }>;
+type TodoTaskActions = Exclude<TaskActions, { type: 'undo' } | { type: 'clear' }>;
 const useTodoTask = () => {
   const [tasks, dispatch] = useTasks();
   const todo = tasks.filter((task) => !task.completed);

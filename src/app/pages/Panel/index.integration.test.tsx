@@ -142,3 +142,26 @@ test('different message for empty finish task list after add new 3 tasks', () =>
   expect(screen.queryByText(/let's do some tasks/i)).not.toBeInTheDocument();
   expect(screen.getByText(/you're completing some task, right?/i)).toBeInTheDocument();
 });
+
+test('cleaning all finish tasks', () => {
+  renderWithProvider(<App />);
+
+  userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
+  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.click(screen.getByRole('button', { name: /complete task make dinner/i }));
+
+  userEvent.type(screen.getByPlaceholderText(/new task/i), 'clean the house');
+  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.click(screen.getByRole('button', { name: /complete task clean the house/i }));
+
+  userEvent.type(screen.getByPlaceholderText(/new task/i), 'walk the dog');
+  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.click(screen.getByRole('button', { name: /complete task walk the dog/i }));
+
+  const finishedTasks = within(screen.getByRole('list', { name: 'done tasks' })).getAllByRole('listitem');
+
+  expect(finishedTasks.length).toBe(3);
+
+  userEvent.click(screen.getByRole('button', { name: /clear/i }));
+  expect(finishedTasks.length).toBe(3);
+});
