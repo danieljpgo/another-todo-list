@@ -12,12 +12,12 @@ import Form from './Form';
 const Todo = () => {
   const [{ list, status }, dispatch] = useTodoTask();
 
-  function handleAddTask(description: string) {
-    dispatch({ type: 'add', description });
-  }
-
   function handleDoneTask(id: string) {
     dispatch({ type: 'done', id });
+  }
+
+  function handleAddTask(description: string) {
+    dispatch({ type: 'add', description });
   }
 
   function handleDeleteTask(id: string) {
@@ -37,14 +37,9 @@ const Todo = () => {
               key={task.id}
               id={task.id}
               description={task.description}
+              checked={task.completed}
+              onCheckedChange={() => handleDoneTask(task.id)}
             >
-              <IconButton
-                title="complete task"
-                aria-label={`complete task ${task.description}`}
-                onClick={() => handleDoneTask(task.id)}
-              >
-                <DoneIcon />
-              </IconButton>
               <IconButton
                 title="delete task"
                 aria-label={`delete task ${task.description}`}

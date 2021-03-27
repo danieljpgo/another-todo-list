@@ -9,7 +9,7 @@ interface ListProps {
 }
 
 const List = ({ message, 'aria-label': ariaLabel, children }: ListProps) => (
-  <motion.div layout className="px-5 bg-white shadow-md py-7 rounded-xl max-h-80">
+  <motion.div layout className="px-5 bg-white rounded-lg shadow-md py-7 max-h-80">
     <div className={`h-full px-2 overflow-y-auto ${children.length > 4 && 'border-t border-b border-gray-100'}`}>
       <ul
         aria-label={ariaLabel}

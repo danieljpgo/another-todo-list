@@ -33,7 +33,7 @@ test('finish a new task', async () => {
   userEvent.type(screen.getByPlaceholderText(/new task/i), 'clean the house');
   userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
 
-  userEvent.click(screen.getByRole('button', { name: /complete task make dinner/i }));
+  userEvent.click(screen.getByRole('checkbox', { name: /complete task make dinner/i }));
 
   const todo = screen.getByRole('list', { name: /todo tasks/i });
   const done = screen.getByRole('list', { name: /done tasks/i });
@@ -73,8 +73,8 @@ test('undo a finish task', async () => {
   const todo = screen.getByRole('list', { name: /todo tasks/i });
   const done = screen.getByRole('list', { name: /done tasks/i });
 
-  userEvent.click(screen.getByRole('button', { name: /complete task make dinner/i }));
-  userEvent.click(screen.getByRole('button', { name: /undo task make dinner/i }));
+  userEvent.click(screen.getByRole('checkbox', { name: /complete task make dinner/i }));
+  userEvent.click(screen.getByRole('checkbox', { name: /undo task make dinner/i }));
 
   expect(within(todo).getByText(/make dinner/i)).toBeInTheDocument();
   expect(within(done).queryByText(/make dinner/i)).not.toBeInTheDocument();
@@ -86,7 +86,7 @@ test('delete a finish tasks', async () => {
   userEvent.type(screen.getByPlaceholderText(/new task/i), 'clean the house');
   userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
 
-  userEvent.click(screen.getByRole('button', { name: /complete task clean the house/i }));
+  userEvent.click(screen.getByRole('checkbox', { name: /complete task clean the house/i }));
 
   const todo = screen.getByRole('list', { name: /todo tasks/i });
   const done = screen.getByRole('list', { name: /done tasks/i });
@@ -104,19 +104,19 @@ test('different message for empty task list after completing 3 tasks', () => {
 
   userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
   userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
-  userEvent.click(screen.getByRole('button', { name: /complete task make dinner/i }));
+  userEvent.click(screen.getByRole('checkbox', { name: /complete task make dinner/i }));
 
   userEvent.type(screen.getByPlaceholderText(/new task/i), 'clean the house');
   userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
-  userEvent.click(screen.getByRole('button', { name: /complete task clean the house/i }));
+  userEvent.click(screen.getByRole('checkbox', { name: /complete task clean the house/i }));
 
   userEvent.type(screen.getByPlaceholderText(/new task/i), 'walk the dog');
   userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
-  userEvent.click(screen.getByRole('button', { name: /complete task walk the dog/i }));
+  userEvent.click(screen.getByRole('checkbox', { name: /complete task walk the dog/i }));
 
   userEvent.type(screen.getByPlaceholderText(/new task/i), 'wash the clothes');
   userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
-  userEvent.click(screen.getByRole('button', { name: /complete task wash the clothes/i }));
+  userEvent.click(screen.getByRole('checkbox', { name: /complete task wash the clothes/i }));
 
   expect(screen.getByText(/go have fun/i)).toBeInTheDocument();
   expect(screen.queryByText(/there must be a task somewhere/i)).not.toBeInTheDocument();
@@ -148,15 +148,15 @@ test('cleaning all finish tasks', () => {
 
   userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
   userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
-  userEvent.click(screen.getByRole('button', { name: /complete task make dinner/i }));
+  userEvent.click(screen.getByRole('checkbox', { name: /complete task make dinner/i }));
 
   userEvent.type(screen.getByPlaceholderText(/new task/i), 'clean the house');
   userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
-  userEvent.click(screen.getByRole('button', { name: /complete task clean the house/i }));
+  userEvent.click(screen.getByRole('checkbox', { name: /complete task clean the house/i }));
 
   userEvent.type(screen.getByPlaceholderText(/new task/i), 'walk the dog');
   userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
-  userEvent.click(screen.getByRole('button', { name: /complete task walk the dog/i }));
+  userEvent.click(screen.getByRole('checkbox', { name: /complete task walk the dog/i }));
 
   const finishedTasks = within(screen.getByRole('list', { name: 'done tasks' })).getAllByRole('listitem');
 
