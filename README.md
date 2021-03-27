@@ -9,12 +9,11 @@ TODO
 - ~~Acessibilidade~~
 - ~~Layout~~
 - Estilização
+- Framer Motion
 - Local Storage - Text field e tasks
   ...
 - Deploy
 - Documentação
-- Framer Motion
-- tailwindcss-jit
 
 <!-- # Getting Started with Create React App
 

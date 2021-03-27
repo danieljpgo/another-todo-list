@@ -1,13 +1,11 @@
 import * as React from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { useTodoTask } from '../../../common/context/TaskContext';
-import DeleteIcon from '../../../common/components/DeleteIcon';
-import DoneIcon from '../../../common/components/DoneIcon';
 import IconButton from '../../../common/components/IconButton';
-import List from '../../../common/components/List';
+import DeleteIcon from '../../../common/components/DeleteIcon';
 import Task from '../../../common/components/Task';
+import List from '../../../common/components/List';
 import Form from './Form';
-// import Text from '../../../common/components/Text';
 
 const Todo = () => {
   const [{ list, status }, dispatch] = useTodoTask();
@@ -26,7 +24,6 @@ const Todo = () => {
 
   return (
     <div className="grid content-end gap-4 auto-rows-min">
-      {/* <Text variant="title">To Do</Text> */}
       <AnimatePresence>
         <List
           message={status}

@@ -5,7 +5,6 @@ import DeleteIcon from '../../../common/components/DeleteIcon';
 import List from '../../../common/components/List';
 import Task from '../../../common/components/Task';
 import Text from '../../../common/components/Text';
-// import Text from '../../../common/components/Text';
 
 const Done = () => {
   const [{ list, status }, dispatch] = useDoneTask();
@@ -24,7 +23,6 @@ const Done = () => {
 
   return (
     <div className="grid content-end gap-4 auto-rows-min">
-      {/* <Text variant="title">Done</Text> */}
       <AnimatePresence>
         <List
           message={status}
