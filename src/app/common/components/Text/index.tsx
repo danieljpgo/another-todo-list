@@ -9,8 +9,12 @@ interface TextProps {
   children: string;
 }
 
-const Text = ({ children, variant = 'base' }: TextProps) => (
-  <p className={`${variants[variant]}`}>{children}</p>
-);
+const Text = (props: TextProps) => {
+  const { children, variant = 'base' } = props;
+
+  return (
+    <p className={`${variants[variant]}`}>{children}</p>
+  );
+};
 
 export default Text;

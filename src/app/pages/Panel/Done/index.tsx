@@ -2,9 +2,9 @@ import { AnimatePresence } from 'framer-motion';
 import { useDoneTask } from '../../../common/context/TaskContext';
 import IconButton from '../../../common/components/IconButton';
 import DeleteIcon from '../../../common/components/DeleteIcon';
+import Button from '../../../common/components/Button';
 import List from '../../../common/components/List';
 import Task from '../../../common/components/Task';
-import Text from '../../../common/components/Text';
 
 const Done = () => {
   const [{ list, status }, dispatch] = useDoneTask();
@@ -48,16 +48,13 @@ const Done = () => {
         </List>
       </AnimatePresence>
       <div className="flex justify-end">
-        <button
+        <Button
           type="button"
           title="clear finish tasks"
-          className="transition-all transform scale-100 duration-200 px-10 py-2.5 uppercase bg-white rounded-lg shadow-md outline-none focus:outline-none focus:ring focus:ring-blue-200 active:shadow active:scale-95"
           onClick={() => handleClearTasks()}
         >
-          <Text>
-            clear
-          </Text>
-        </button>
+          clear
+        </Button>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Children } from '../../types/children';
-import Text from '../Text';
+import CheckboxField from '../CheckboxField';
 
 const undo = 'undo task';
 const complete = 'complete task';
@@ -21,23 +21,23 @@ const Task = (props: TaskProps) => {
     onCheckedChange,
   } = props;
 
+  const label = checked ? undo : complete;
+
   return (
     <motion.li
       layoutId={id}
       className="flex items-center w-full gap-2 px-3 py-2.5 bg-white "
     >
-      <input
+      <CheckboxField
         id={id}
-        type="checkbox"
-        title={checked ? undo : complete}
+        name="checkbox"
+        title={label}
         checked={checked}
-        aria-label={`${checked ? undo : complete} ${description}`}
-        className="text-blue-200 transition-all duration-200 border-gray-400 rounded outline-none border-1 focus:ring-offset-1 focus:outline-none hover:text-blue-100 focus:ring focus:ring-blue-200 "
+        aria-label={`${label} ${description}`}
         onChange={(event) => onCheckedChange(event)}
-      />
-      <label htmlFor={id}>
-        <Text>{description}</Text>
-      </label>
+      >
+        {description}
+      </CheckboxField>
       <div className="flex self-end justify-between opacity-0 hover:opacity-100 focus-within:opacity-100">
         {children}
       </div>
