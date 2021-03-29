@@ -1,6 +1,11 @@
-import { ButtonHTMLAttributes } from 'react';
+import * as React from 'react';
+import { Children } from '../../types/children';
 
-type IconButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'>;
+interface IconButtonProps extends Children {
+  title: string,
+  'aria-label': string,
+  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,
+}
 
 const IconButton = (props: IconButtonProps) => {
   const {
@@ -15,7 +20,7 @@ const IconButton = (props: IconButtonProps) => {
       type="button"
       title={title}
       aria-label={ariaLabel}
-      className="w-6 transition-all duration-200 transform scale-100 border-none rounded-full shadow-md outline-none focus:outline-none focus:ring-blue-200 focus:ring-4 focus:shadow-lg focus:scale-105 active:shadow active:scale-95 hover:shadow-lg hover:scale-105"
+      className="w-7 p-1.5 transition-all duration-200 transform scale-100 border-none rounded-md shadow-md outline-none focus:outline-none focus:ring-blue-200 focus:ring active:shadow active:scale-95"
       onClick={onClick}
     >
       {children}

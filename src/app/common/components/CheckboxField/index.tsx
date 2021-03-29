@@ -18,7 +18,7 @@ const CheckboxField = (props: CheckboxFieldProps) => {
   } = props;
 
   return (
-    <div>
+    <div className="flex items-center gap-3">
       <Checkbox
         id={id}
         name={name}
@@ -27,7 +27,10 @@ const CheckboxField = (props: CheckboxFieldProps) => {
         aria-label={ariaLabel}
         onChange={onChange}
       />
-      <label htmlFor={id}>
+      <label
+        htmlFor={id}
+        className="cursor-pointer"
+      >
         <Text>{children}</Text>
       </label>
     </div>
