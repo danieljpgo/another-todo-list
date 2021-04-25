@@ -2,20 +2,20 @@ import * as React from 'react';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { TaskProvider } from '../../common/context/TaskContext';
-import App from '../..';
+import Panel from './index';
 
 function renderWithProvider(children: React.ReactNode) {
   render(<TaskProvider>{children}</TaskProvider>);
 }
 
 test('fallback messages for empty tasks list', () => {
-  renderWithProvider(<App />);
+  renderWithProvider(<Panel />);
   expect(screen.getByText(/let's do some tasks/i)).toBeInTheDocument();
   expect(screen.getByText(/there must be a task somewhere/i)).toBeInTheDocument();
 });
 
 test('add new task', () => {
-  renderWithProvider(<App />);
+  renderWithProvider(<Panel />);
   userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
   userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
 
@@ -25,7 +25,7 @@ test('add new task', () => {
 });
 
 test('finish a new task', async () => {
-  renderWithProvider(<App />);
+  renderWithProvider(<Panel />);
 
   userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
   userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
@@ -45,7 +45,7 @@ test('finish a new task', async () => {
 });
 
 test('delete a todo tasks', async () => {
-  renderWithProvider(<App />);
+  renderWithProvider(<Panel />);
 
   userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
   userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
@@ -65,7 +65,7 @@ test('delete a todo tasks', async () => {
 });
 
 test('undo a finish task', async () => {
-  renderWithProvider(<App />);
+  renderWithProvider(<Panel />);
 
   userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
   userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
@@ -81,7 +81,7 @@ test('undo a finish task', async () => {
 });
 
 test('delete a finish tasks', async () => {
-  renderWithProvider(<App />);
+  renderWithProvider(<Panel />);
 
   userEvent.type(screen.getByPlaceholderText(/new task/i), 'clean the house');
   userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
@@ -98,7 +98,7 @@ test('delete a finish tasks', async () => {
 });
 
 test('different message for empty task list after completing 3 tasks', () => {
-  renderWithProvider(<App />);
+  renderWithProvider(<Panel />);
   expect(screen.getByText(/let's do some tasks/i)).toBeInTheDocument();
   expect(screen.getByText(/there must be a task somewhere/i)).toBeInTheDocument();
 
@@ -123,7 +123,7 @@ test('different message for empty task list after completing 3 tasks', () => {
 });
 
 test('different message for empty finish task list after add new 3 tasks', () => {
-  renderWithProvider(<App />);
+  renderWithProvider(<Panel />);
   expect(screen.getByText(/let's do some tasks/i)).toBeInTheDocument();
   expect(screen.getByText(/there must be a task somewhere/i)).toBeInTheDocument();
 
@@ -144,7 +144,7 @@ test('different message for empty finish task list after add new 3 tasks', () =>
 });
 
 test('cleaning all finish tasks', () => {
-  renderWithProvider(<App />);
+  renderWithProvider(<Panel />);
 
   userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
   userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');

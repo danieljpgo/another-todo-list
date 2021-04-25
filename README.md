@@ -1,63 +1,118 @@
+<div align="center">
+    <!-- <img
+      alt="another todo list"
+      title="another todo list"
+      src=".github/another-todo-list.svg"
+      width="150px" /> -->
+</div>
+
+<h1 align="left">Another Todo List</h1>
+
+<p align="left">
+   <a href="https://github.com/danieljpgo">
+      <img
+        alt="author"
+        src="https://img.shields.io/badge/author-danieljpgo-9CA3AF?style=flat&labelColor=E5E7EB"
+      />
+   </a>
+   <img
+      alt="languages"
+      src="https://img.shields.io/github/languages/count/danieljpgo/tic-tac-toe?color=9CA3AF&style=flat&labelColor=E5E7EB"
+   />
+   <a href="https://github.com/danieljpgo/another-todo-list/graphs/contributors">
+      <img
+        alt="contributors"
+        src="https://img.shields.io/github/stars/danieljpgo/tic-tac-toe?color=9CA3AF&style=flat&labelColor=E5E7EB"/>
+   </a>
+    <a href="https://github.com/danieljpgo/another-todo-list/network/members">
+      <img
+         alt="forks"
+         src="https://img.shields.io/github/forks/danieljpgo/tic-tac-toe?color=9CA3AF&style=flat&labelColor=E5E7EB"/>
+   </a>
+     <img alt="License" src="https://img.shields.io/badge/license-MIT-9CA3AF?style=flat&labelColor=E5E7EB">
+</p>
+
+> todo
+
+&nbsp;
+
+<p align="center">
+   <a href="#project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#goals">Goals</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#features">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#getting-started">Getting Started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#license">License</a>
+</p>
+
+<div align="center">
+   <!-- <img
+      alt="another todo list"
+      title="another todo list"
+      src=".github/anim.gif"
+      width="640px" /> -->
+</div>
+
+## Project
 TODO
 
-- ~~Limpar CRA~~
-- ~~Eslint com typescript~~
-- ~~Craco e Tailwind~~
-- ~~Estrutura~~
-- ~~Provider com Context~~
-- ~~TDD~~
-- ~~Acessibilidade~~
-- ~~Layout~~
-- Estilização
-- Framer Motion
-- Local Storage - Text field e tasks
-  ...
-- Deploy
-- Documentação
 
-<!-- # Getting Started with Create React App
+## Goals
+TODO
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Features
+TODO
 
-In the project directory, you can run:
 
-### `yarn start`
+## Technologies
+The main technologies used to develop the project were:
+- [React](https://reactjs.org/)
+- [Tailwind](https://tailwindcss.com/) 
+- [Testing Library](https://testing-library.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Typescript](https://www.typescriptlang.org/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This project was bootstrapped with:
+- [create-react-app](https://github.com/facebook/create-react-app)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Custom configuration layer with:
+- [craco](https://github.com/gsoft-inc/craco)
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
+First of all, you may clone this project:
+```
+git clone https://github.com/danieljpgo/another-todo-list.git
+```
+Run the following scripts in order to execute the application:
+```
+// install dependencies
+yarn install
 
-### `yarn build`
+// start the application
+yarn start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## TODO
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [x] Limpar CRA
+- [x] Eslint com typescript
+- [x] Craco e Tailwind
+- [x] Estrutura
+- [x] Provider com Context
+- [x] TDD
+- [x] Acessibilidade
+- [ ] Layout
+- [ ] Estilização
+- [ ] Framer Motion
+- [ ] Local Storage - Text field e tasks
+- [ ] Deploy
+- [ ] Documentação
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+## License
+This project is under the [MIT license](https://github.com/danieljpgo/another-todo-list/blob/master/LICENSE).
+<div>Released in 2021.</div>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/). -->
+Make with ❤️ by [Daniel Jorge](https://github.com/danieljpgo)
