@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Children } from '../../types/children';
+import { useLocalStorageReducer } from '../../utils/hooks';
 
 type Task = {
   id: string;
@@ -45,14 +46,14 @@ function taskReducer(state: typeof initialState = initialState, action: TaskActi
   }
 }
 
-// @TODO olhar o undefined depois
 type TaskContextType = [Task[], React.Dispatch<TaskActions>] | undefined;
 const TaskContext = React.createContext<TaskContextType>(undefined);
 
 type TaskProviderProps = Children;
 const TaskProvider = (props: TaskProviderProps) => {
   const { children } = props;
-  const [tasks, dispatch] = React.useReducer(taskReducer, initialState);
+  // const [tasks, dispatch] = React.useReducer(taskReducer, initialState);
+  const [tasks, dispatch] = useLocalStorageReducer('another-todo-list:tasks', taskReducer, initialState);
 
   return (
     <TaskContext.Provider value={[tasks, dispatch]}>
@@ -75,7 +76,9 @@ const useTodoTask = () => {
   const todo = tasks.filter((task) => !task.completed);
   const done = tasks.filter((task) => task.completed);
 
-  const status = done.length > 3 ? 'go have fun' : "let's do some tasks";
+  const status = done.length > 3
+    ? 'go have fun'
+    : "let's do some tasks";
 
   function todoDispatch(actions: TodoTaskActions) {
     return dispatch(actions);
@@ -90,7 +93,9 @@ const useDoneTask = () => {
   const done = tasks.filter((task) => task.completed);
   const todo = tasks.filter((task) => !task.completed);
 
-  const status = todo.length > 3 ? "you're completing some task, right?" : 'there must be a task somewhere';
+  const status = todo.length > 3
+    ? "you're completing some task, right?"
+    : 'there must be a task somewhere';
 
   function doneDispatch(actions: DoneTaskActions) {
     return dispatch(actions);

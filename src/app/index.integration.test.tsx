@@ -1,21 +1,20 @@
 import * as React from 'react';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { TaskProvider } from '../../common/context/TaskContext';
-import Panel from './index';
+import App from '.';
 
-function renderWithProvider(children: React.ReactNode) {
-  render(<TaskProvider>{children}</TaskProvider>);
-}
+beforeEach(() => {
+  window.localStorage.clear();
+});
 
 test('fallback messages for empty tasks list', () => {
-  renderWithProvider(<Panel />);
+  render(<App />);
   expect(screen.getByText(/let's do some tasks/i)).toBeInTheDocument();
   expect(screen.getByText(/there must be a task somewhere/i)).toBeInTheDocument();
 });
 
 test('add new task', () => {
-  renderWithProvider(<Panel />);
+  render(<App />);
   userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
   userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
 
@@ -25,7 +24,7 @@ test('add new task', () => {
 });
 
 test('finish a new task', async () => {
-  renderWithProvider(<Panel />);
+  render(<App />);
 
   userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
   userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
@@ -45,7 +44,7 @@ test('finish a new task', async () => {
 });
 
 test('delete a todo tasks', async () => {
-  renderWithProvider(<Panel />);
+  render(<App />);
 
   userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
   userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
@@ -65,7 +64,7 @@ test('delete a todo tasks', async () => {
 });
 
 test('undo a finish task', async () => {
-  renderWithProvider(<Panel />);
+  render(<App />);
 
   userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
   userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
@@ -81,7 +80,7 @@ test('undo a finish task', async () => {
 });
 
 test('delete a finish tasks', async () => {
-  renderWithProvider(<Panel />);
+  render(<App />);
 
   userEvent.type(screen.getByPlaceholderText(/new task/i), 'clean the house');
   userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
@@ -98,7 +97,7 @@ test('delete a finish tasks', async () => {
 });
 
 test('different message for empty task list after completing 3 tasks', () => {
-  renderWithProvider(<Panel />);
+  render(<App />);
   expect(screen.getByText(/let's do some tasks/i)).toBeInTheDocument();
   expect(screen.getByText(/there must be a task somewhere/i)).toBeInTheDocument();
 
@@ -123,7 +122,7 @@ test('different message for empty task list after completing 3 tasks', () => {
 });
 
 test('different message for empty finish task list after add new 3 tasks', () => {
-  renderWithProvider(<Panel />);
+  render(<App />);
   expect(screen.getByText(/let's do some tasks/i)).toBeInTheDocument();
   expect(screen.getByText(/there must be a task somewhere/i)).toBeInTheDocument();
 
@@ -144,7 +143,7 @@ test('different message for empty finish task list after add new 3 tasks', () =>
 });
 
 test('cleaning all finish tasks', () => {
-  renderWithProvider(<Panel />);
+  render(<App />);
 
   userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
   userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
@@ -164,4 +163,31 @@ test('cleaning all finish tasks', () => {
 
   userEvent.click(screen.getByRole('button', { name: /clear/i }));
   expect(finishedTasks.length).toBe(3);
+});
+
+test('tasks and actions is saved even when reloading the page', () => {
+  const { rerender } = render(<App />);
+
+  userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
+  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.click(screen.getByRole('checkbox', { name: /complete task make dinner/i }));
+
+  userEvent.type(screen.getByPlaceholderText(/new task/i), 'clean the house');
+  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+
+  const todo = screen.getByRole('list', { name: /todo tasks/i });
+  const done = screen.getByRole('list', { name: /done tasks/i });
+
+  expect(within(todo).queryByText(/make dinner/i)).not.toBeInTheDocument();
+  expect(within(todo).getByText(/clean the house/i)).toBeInTheDocument();
+  expect(within(done).getByText(/make dinner/i)).toBeInTheDocument();
+
+  rerender(<App key="reload_page" />);
+
+  const todoReloaded = screen.getByRole('list', { name: /todo tasks/i });
+  const doneReloaded = screen.getByRole('list', { name: /done tasks/i });
+
+  expect(within(todoReloaded).queryByText(/make dinner/i)).not.toBeInTheDocument();
+  expect(within(todoReloaded).getByText(/clean the house/i)).toBeInTheDocument();
+  expect(within(doneReloaded).getByText(/make dinner/i)).toBeInTheDocument();
 });
