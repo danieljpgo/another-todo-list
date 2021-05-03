@@ -116,9 +116,16 @@ Make with ❤️ by [Daniel Jorge](https://github.com/danieljpgo)
 - [x] Provider com Context
 - [x] TDD
 - [x] Acessibilidade
-- [ ] Layout
+- [x] Layout
+- [ ] Layout Mobile
 - [ ] Estilização
+- [ ] Textos
 - [ ] Framer Motion
-- [ ] Local Storage - Text field e tasks
-- [ ] Deploy
-- [ ] Documentação -->
+- [x] Local Storage - Text field
+- [ ] Local Storage - tasks
+- [x] Deploy
+- [x] Documentação base 
+- [ ] Documentação 
+- [ ] Testing Badge
+
+-->
