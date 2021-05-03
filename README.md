@@ -17,19 +17,20 @@
    </a>
    <img
       alt="languages"
-      src="https://img.shields.io/github/languages/count/danieljpgo/tic-tac-toe?color=9CA3AF&style=flat&labelColor=E5E7EB"
+      src="https://img.shields.io/github/languages/count/danieljpgo/another-todo-list?color=9CA3AF&style=flat&labelColor=E5E7EB"
    />
    <a href="https://github.com/danieljpgo/another-todo-list/graphs/contributors">
       <img
         alt="contributors"
-        src="https://img.shields.io/github/stars/danieljpgo/tic-tac-toe?color=9CA3AF&style=flat&labelColor=E5E7EB"/>
+        src="https://img.shields.io/github/stars/danieljpgo/another-todo-list?color=9CA3AF&style=flat&labelColor=E5E7EB"/>
    </a>
     <a href="https://github.com/danieljpgo/another-todo-list/network/members">
       <img
          alt="forks"
-         src="https://img.shields.io/github/forks/danieljpgo/tic-tac-toe?color=9CA3AF&style=flat&labelColor=E5E7EB"/>
+         src="https://img.shields.io/github/forks/danieljpgo/another-todo-list?color=9CA3AF&style=flat&labelColor=E5E7EB"/>
    </a>
-     <img alt="License" src="https://img.shields.io/badge/license-MIT-9CA3AF?style=flat&labelColor=E5E7EB">
+   <img alt="license" src="https://img.shields.io/badge/license-MIT-9CA3AF?style=flat&labelColor=E5E7EB">
+   <img alt="test coverage" src="./coverage/badge.svg">
 </p>
 
 > todo
@@ -42,6 +43,7 @@
    <a href="#features">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
    <a href="#technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
    <a href="#getting-started">Getting Started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+   <a href="#contributing">Contributing</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
    <a href="#license">License</a>
 </p>
 
@@ -58,10 +60,12 @@ TODO
 
 
 ## Goals
+The goals of this project were:
 TODO
 
 
 ## Features
+The main features of the project are:
 TODO
 
 
@@ -94,7 +98,16 @@ yarn install
 yarn start
 ```
 
-## TODO
+## Contributing
+Check out the [contributing page](https://github.com/danieljpgo/another-todo-list/blob/master/CONTRIBUTING.md) to see the best places to file issues, start discussions and begin contributing.
+
+## License
+This project is under the [MIT license](https://github.com/danieljpgo/another-todo-list/blob/master/LICENSE).
+<div>Released in 2021.</div>
+
+Make with ❤️ by [Daniel Jorge](https://github.com/danieljpgo)
+
+<!-- ## TODO
 
 - [x] Limpar CRA
 - [x] Eslint com typescript
@@ -108,11 +121,4 @@ yarn start
 - [ ] Framer Motion
 - [ ] Local Storage - Text field e tasks
 - [ ] Deploy
-- [ ] Documentação
-
-
-## License
-This project is under the [MIT license](https://github.com/danieljpgo/another-todo-list/blob/master/LICENSE).
-<div>Released in 2021.</div>
-
-Make with ❤️ by [Daniel Jorge](https://github.com/danieljpgo)
+- [ ] Documentação -->
