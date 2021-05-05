@@ -191,3 +191,12 @@ test('tasks and actions is saved even when reloading the page', () => {
   expect(within(todoReloaded).getByText(/clean the house/i)).toBeInTheDocument();
   expect(within(doneReloaded).getByText(/make dinner/i)).toBeInTheDocument();
 });
+
+test('input content is saved even when reloading the page', () => {
+  const { rerender } = render(<App />);
+
+  userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
+
+  rerender(<App key="reload_page" />);
+  expect(screen.getByPlaceholderText(/new task/i)).toHaveValue('make dinner');
+});

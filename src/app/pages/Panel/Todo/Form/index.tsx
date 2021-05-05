@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useLocalStorageState } from '../../../../common/utils/hooks/useLocalStorageState';
 import Input from '../../../../common/components/Input';
 
 interface FormProps {
@@ -6,7 +7,7 @@ interface FormProps {
 }
 
 const Form = ({ onSubmit }: FormProps) => {
-  const [input, setInput] = React.useState('');
+  const [input, setInput] = useLocalStorageState('another-todo-list:input', '');
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>, description: string) {
     e.preventDefault();

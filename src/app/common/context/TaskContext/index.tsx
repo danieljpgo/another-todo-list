@@ -52,7 +52,6 @@ const TaskContext = React.createContext<TaskContextType>(undefined);
 type TaskProviderProps = Children;
 const TaskProvider = (props: TaskProviderProps) => {
   const { children } = props;
-  // const [tasks, dispatch] = React.useReducer(taskReducer, initialState);
   const [tasks, dispatch] = useLocalStorageReducer('another-todo-list:tasks', taskReducer, initialState);
 
   return (
