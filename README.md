@@ -56,40 +56,47 @@
 </div>
 
 ## Project
+
 TODO
 
-
 ## Goals
+
 The goals of this project were:
 TODO
 
-
 ## Features
+
 The main features of the project are:
 TODO
 
-
 ## Technologies
+
 The main technologies used to develop the project were:
+
 - [React](https://reactjs.org/)
-- [Tailwind](https://tailwindcss.com/) 
+- [Tailwind](https://tailwindcss.com/)
 - [Testing Library](https://testing-library.com/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [Typescript](https://www.typescriptlang.org/)
 
 This project was bootstrapped with:
+
 - [create-react-app](https://github.com/facebook/create-react-app)
 
 Custom configuration layer with:
+
 - [craco](https://github.com/gsoft-inc/craco)
 
-
 ## Getting Started
+
 First of all, you may clone this project:
+
 ```
 git clone https://github.com/danieljpgo/another-todo-list.git
 ```
+
 Run the following scripts in order to execute the application:
+
 ```
 // install dependencies
 yarn install
@@ -99,10 +106,13 @@ yarn start
 ```
 
 ## Contributing
+
 Check out the [contributing page](https://github.com/danieljpgo/another-todo-list/blob/master/CONTRIBUTING.md) to see the best places to file issues, start discussions and begin contributing.
 
 ## License
+
 This project is under the [MIT license](https://github.com/danieljpgo/another-todo-list/blob/master/LICENSE).
+
 <div>Released in 2021.</div>
 
 Make with ❤️ by [Daniel Jorge](https://github.com/danieljpgo)
@@ -124,8 +134,8 @@ Make with ❤️ by [Daniel Jorge](https://github.com/danieljpgo)
 - [x] Local Storage - Text field
 - [ ] Local Storage - tasks
 - [x] Deploy
-- [x] Documentação base 
-- [ ] Documentação 
+- [x] Documentação base
+- [ ] Documentação
 - [ ] Testing Badge
 
 -->

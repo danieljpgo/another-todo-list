@@ -12,6 +12,7 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "framer-motion": "^4.0.0",
+    "make-coverage-badge": "^1.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.3",
@@ -22,8 +23,14 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "test:coverage": "craco test --coverage --watchAll",
+    "test:coverage": "craco test --coverage --watchAll && make-coverage-badge",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "coverageReporters": [
+      "json-summary",
+      "text"
+    ]
   },
   "eslintConfig": {
     "extends": [
