@@ -23,7 +23,7 @@ const Button = (props: ButtonProps) => {
       type={type}
       title={title}
       disabled={disabled}
-      className="transition-all transform scale-100 duration-200 px-10 py-2.5 uppercase bg-white rounded-lg shadow-md outline-none focus:outline-none focus:ring focus:ring-blue-200 active:shadow active:scale-95"
+      className="transition-all transform scale-100 duration-200 px-10 py-2.5 lowercase bg-white rounded-lg shadow-md outline-none focus:outline-none focus:ring focus:ring-blue-200 active:shadow active:scale-95"
       onClick={onClick}
     >
       <Text>

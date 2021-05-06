@@ -48,7 +48,10 @@ const Todo = () => {
         </List>
       </AnimatePresence>
       <div>
-        <Form onSubmit={(description) => handleAddTask(description)} />
+        <Form
+          counter={list.length}
+          onSubmit={(description) => handleAddTask(description)}
+        />
       </div>
     </div>
   );

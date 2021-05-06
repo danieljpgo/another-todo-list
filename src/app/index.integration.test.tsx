@@ -15,8 +15,8 @@ test('fallback messages for empty tasks list', () => {
 
 test('add new task', () => {
   render(<App />);
-  userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
-  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.type(screen.getByLabelText(/new task/i), 'make dinner');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
 
   const todo = screen.getByRole('list', { name: /todo task/i });
 
@@ -26,11 +26,11 @@ test('add new task', () => {
 test('finish a new task', async () => {
   render(<App />);
 
-  userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
-  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.type(screen.getByLabelText(/new task/i), 'make dinner');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
 
-  userEvent.type(screen.getByPlaceholderText(/new task/i), 'clean the house');
-  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.type(screen.getByLabelText(/new task/i), 'clean the house');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
 
   userEvent.click(screen.getByRole('checkbox', { name: /complete task make dinner/i }));
 
@@ -46,11 +46,11 @@ test('finish a new task', async () => {
 test('delete a todo tasks', async () => {
   render(<App />);
 
-  userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
-  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.type(screen.getByLabelText(/new task/i), 'make dinner');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
 
-  userEvent.type(screen.getByPlaceholderText(/new task/i), 'clean the house');
-  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.type(screen.getByLabelText(/new task/i), 'clean the house');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
 
   userEvent.click(screen.getByRole('button', { name: /delete task clean the house/i }));
 
@@ -66,8 +66,8 @@ test('delete a todo tasks', async () => {
 test('undo a finish task', async () => {
   render(<App />);
 
-  userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
-  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.type(screen.getByLabelText(/new task/i), 'make dinner');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
 
   const todo = screen.getByRole('list', { name: /todo tasks/i });
   const done = screen.getByRole('list', { name: /done tasks/i });
@@ -82,8 +82,8 @@ test('undo a finish task', async () => {
 test('delete a finish tasks', async () => {
   render(<App />);
 
-  userEvent.type(screen.getByPlaceholderText(/new task/i), 'clean the house');
-  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.type(screen.getByLabelText(/new task/i), 'clean the house');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
 
   userEvent.click(screen.getByRole('checkbox', { name: /complete task clean the house/i }));
 
@@ -101,20 +101,20 @@ test('different message for empty task list after completing 3 tasks', () => {
   expect(screen.getByText(/let's do some tasks/i)).toBeInTheDocument();
   expect(screen.getByText(/there must be a task somewhere/i)).toBeInTheDocument();
 
-  userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
-  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.type(screen.getByLabelText(/new task/i), 'make dinner');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
   userEvent.click(screen.getByRole('checkbox', { name: /complete task make dinner/i }));
 
-  userEvent.type(screen.getByPlaceholderText(/new task/i), 'clean the house');
-  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.type(screen.getByLabelText(/new task/i), 'clean the house');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
   userEvent.click(screen.getByRole('checkbox', { name: /complete task clean the house/i }));
 
-  userEvent.type(screen.getByPlaceholderText(/new task/i), 'walk the dog');
-  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.type(screen.getByLabelText(/new task/i), 'walk the dog');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
   userEvent.click(screen.getByRole('checkbox', { name: /complete task walk the dog/i }));
 
-  userEvent.type(screen.getByPlaceholderText(/new task/i), 'wash the clothes');
-  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.type(screen.getByLabelText(/new task/i), 'wash the clothes');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
   userEvent.click(screen.getByRole('checkbox', { name: /complete task wash the clothes/i }));
 
   expect(screen.getByText(/go have fun/i)).toBeInTheDocument();
@@ -126,17 +126,17 @@ test('different message for empty finish task list after add new 3 tasks', () =>
   expect(screen.getByText(/let's do some tasks/i)).toBeInTheDocument();
   expect(screen.getByText(/there must be a task somewhere/i)).toBeInTheDocument();
 
-  userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
-  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.type(screen.getByLabelText(/new task/i), 'make dinner');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
 
-  userEvent.type(screen.getByPlaceholderText(/new task/i), 'clean the house');
-  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.type(screen.getByLabelText(/new task/i), 'clean the house');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
 
-  userEvent.type(screen.getByPlaceholderText(/new task/i), 'walk the dog');
-  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.type(screen.getByLabelText(/new task/i), 'walk the dog');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
 
-  userEvent.type(screen.getByPlaceholderText(/new task/i), 'wash the clothes');
-  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.type(screen.getByLabelText(/new task/i), 'wash the clothes');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
 
   expect(screen.queryByText(/let's do some tasks/i)).not.toBeInTheDocument();
   expect(screen.getByText(/you're completing some task, right?/i)).toBeInTheDocument();
@@ -145,16 +145,16 @@ test('different message for empty finish task list after add new 3 tasks', () =>
 test('cleaning all finish tasks', () => {
   render(<App />);
 
-  userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
-  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.type(screen.getByLabelText(/new task/i), 'make dinner');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
   userEvent.click(screen.getByRole('checkbox', { name: /complete task make dinner/i }));
 
-  userEvent.type(screen.getByPlaceholderText(/new task/i), 'clean the house');
-  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.type(screen.getByLabelText(/new task/i), 'clean the house');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
   userEvent.click(screen.getByRole('checkbox', { name: /complete task clean the house/i }));
 
-  userEvent.type(screen.getByPlaceholderText(/new task/i), 'walk the dog');
-  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.type(screen.getByLabelText(/new task/i), 'walk the dog');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
   userEvent.click(screen.getByRole('checkbox', { name: /complete task walk the dog/i }));
 
   const finishedTasks = within(screen.getByRole('list', { name: 'done tasks' })).getAllByRole('listitem');
@@ -168,12 +168,12 @@ test('cleaning all finish tasks', () => {
 test('tasks and actions is saved even when reloading the page', () => {
   const { rerender } = render(<App />);
 
-  userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
-  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.type(screen.getByLabelText(/new task/i), 'make dinner');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
   userEvent.click(screen.getByRole('checkbox', { name: /complete task make dinner/i }));
 
-  userEvent.type(screen.getByPlaceholderText(/new task/i), 'clean the house');
-  userEvent.type(screen.getByPlaceholderText(/new task/i), '{enter}');
+  userEvent.type(screen.getByLabelText(/new task/i), 'clean the house');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
 
   const todo = screen.getByRole('list', { name: /todo tasks/i });
   const done = screen.getByRole('list', { name: /done tasks/i });
@@ -195,8 +195,52 @@ test('tasks and actions is saved even when reloading the page', () => {
 test('input content is saved even when reloading the page', () => {
   const { rerender } = render(<App />);
 
-  userEvent.type(screen.getByPlaceholderText(/new task/i), 'make dinner');
+  userEvent.type(screen.getByLabelText(/new task/i), 'make dinner');
 
   rerender(<App key="reload_page" />);
-  expect(screen.getByPlaceholderText(/new task/i)).toHaveValue('make dinner');
+  expect(screen.getByLabelText(/new task/i)).toHaveValue('make dinner');
+});
+
+test('displays all messages in the new task field placeholder', () => {
+  render(<App />);
+
+  expect(screen.getByPlaceholderText(/ok, add some tasks here/i)).toBeInTheDocument();
+
+  userEvent.type(screen.getByLabelText(/new task/i), 'make dinner');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
+
+  userEvent.type(screen.getByLabelText(/new task/i), 'clean the house');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
+
+  userEvent.type(screen.getByLabelText(/new task/i), 'walk the dog');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
+
+  expect(screen.getByPlaceholderText(/more task ?/i)).toBeInTheDocument();
+
+  userEvent.type(screen.getByLabelText(/new task/i), 'wash the clothes');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
+
+  userEvent.type(screen.getByLabelText(/new task/i), 'make dinner again');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
+
+  expect(screen.getByPlaceholderText(/are you sure ?/i)).toBeInTheDocument();
+
+  userEvent.type(screen.getByLabelText(/new task/i), 'clean the house again');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
+
+  userEvent.type(screen.getByLabelText(/new task/i), 'walk the dog again');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
+
+  expect(screen.getByPlaceholderText(/ok, keep going .../i)).toBeInTheDocument();
+
+  userEvent.type(screen.getByLabelText(/new task/i), 'make dinner more one time');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
+
+  userEvent.type(screen.getByLabelText(/new task/i), 'clean the house more one time');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
+
+  userEvent.type(screen.getByLabelText(/new task/i), 'walk the dog more one time');
+  userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
+
+  expect(screen.getByPlaceholderText(/i don't even care anymore/i)).toBeInTheDocument();
 });

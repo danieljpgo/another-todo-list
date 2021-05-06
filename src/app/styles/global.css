@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 body {
+  @apply bg-gradient-to-tr;
+  @apply from-purple-200;
+  @apply via-gray-200;
+  @apply to-blue-200;
   -webkit-tap-highlight-color: transparent;
 }
 

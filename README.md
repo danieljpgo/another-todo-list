@@ -12,24 +12,24 @@
    <a href="https://github.com/danieljpgo">
       <img
         alt="author"
-        src="https://img.shields.io/badge/author-danieljpgo-9CA3AF?style=flat&labelColor=E5E7EB"
+        src="https://img.shields.io/badge/author-danieljpgo-BFDBE8"
       />
    </a>
    <img
       alt="languages"
-      src="https://img.shields.io/github/languages/count/danieljpgo/another-todo-list?color=9CA3AF&style=flat&labelColor=E5E7EB"
+      src="https://img.shields.io/github/languages/count/danieljpgo/another-todo-list?color=BFDBE8"
    />
    <a href="https://github.com/danieljpgo/another-todo-list/graphs/contributors">
       <img
         alt="contributors"
-        src="https://img.shields.io/github/stars/danieljpgo/another-todo-list?color=9CA3AF&style=flat&labelColor=E5E7EB"/>
+        src="https://img.shields.io/github/stars/danieljpgo/another-todo-list?color=BFDBE8"/>
    </a>
     <a href="https://github.com/danieljpgo/another-todo-list/network/members">
       <img
          alt="forks"
-         src="https://img.shields.io/github/forks/danieljpgo/another-todo-list?color=9CA3AF&style=flat&labelColor=E5E7EB"/>
+         src="https://img.shields.io/github/forks/danieljpgo/another-todo-list?color=BFDBE8"/>
    </a>
-   <img alt="license" src="https://img.shields.io/badge/license-MIT-9CA3AF?style=flat&labelColor=E5E7EB">
+   <img alt="license" src="https://img.shields.io/badge/license-MIT-BFDBE8">
    <img alt="test coverage" src="./coverage/badge.svg">
 </p>
 
@@ -127,15 +127,15 @@ Make with ❤️ by [Daniel Jorge](https://github.com/danieljpgo)
 - [x] TDD
 - [x] Acessibilidade
 - [x] Layout
-- [ ] Estilização
+- [x] Estilização
 - [ ] Layout Mobile
 - [ ] Textos
 - [ ] Framer Motion
 - [x] Local Storage - Text field
-- [ ] Local Storage - tasks
+- [x] Local Storage - tasks
 - [x] Deploy
 - [x] Documentação base
 - [ ] Documentação
-- [ ] Testing Badge
+- [x] Testing Badge
 
 -->
