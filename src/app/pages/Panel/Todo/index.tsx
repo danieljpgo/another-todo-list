@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { useTodoTask } from '../../../common/context/TaskContext';
 import IconButton from '../../../common/components/IconButton';
@@ -11,15 +10,15 @@ const Todo = () => {
   const [{ list, status }, dispatch] = useTodoTask();
 
   function handleDoneTask(id: string) {
-    dispatch({ type: 'done', id });
+    dispatch({ type: 'DONE', id });
   }
 
   function handleAddTask(description: string) {
-    dispatch({ type: 'add', description });
+    dispatch({ type: 'ADD', description });
   }
 
   function handleDeleteTask(id: string) {
-    dispatch({ type: 'delete', id });
+    dispatch({ type: 'DELETE', id });
   }
 
   return (

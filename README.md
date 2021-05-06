@@ -117,8 +117,8 @@ Make with ❤️ by [Daniel Jorge](https://github.com/danieljpgo)
 - [x] TDD
 - [x] Acessibilidade
 - [x] Layout
-- [ ] Layout Mobile
 - [ ] Estilização
+- [ ] Layout Mobile
 - [ ] Textos
 - [ ] Framer Motion
 - [x] Local Storage - Text field

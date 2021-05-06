@@ -10,15 +10,15 @@ const Done = () => {
   const [{ list, status }, dispatch] = useDoneTask();
 
   function handleUndoTask(id: string) {
-    dispatch({ type: 'undo', id });
+    dispatch({ type: 'UNDO', id });
   }
 
   function handleDeleteTask(id: string) {
-    dispatch({ type: 'delete', id });
+    dispatch({ type: 'DELETE', id });
   }
 
   function handleClearTasks() {
-    dispatch({ type: 'clear' });
+    dispatch({ type: 'CLEAR' });
   }
 
   return (

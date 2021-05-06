@@ -2,24 +2,24 @@ import * as React from 'react';
 import { Children } from '../../types/children';
 import { useLocalStorageReducer } from '../../utils/hooks';
 
-type Task = {
+interface Task {
   id: string;
   description: string;
   completed: boolean;
-};
+}
 
 const initialState: Task[] = [];
 
 type TaskActions =
-  | { type: 'add'; description: string }
-  | { type: 'done'; id: string }
-  | { type: 'undo'; id: string }
-  | { type: 'delete'; id: string }
-  | { type: 'clear' };
+  | { type: 'ADD'; description: string }
+  | { type: 'DONE'; id: string }
+  | { type: 'UNDO'; id: string }
+  | { type: 'DELETE'; id: string }
+  | { type: 'CLEAR' };
 
 function taskReducer(state: typeof initialState = initialState, action: TaskActions) {
   switch (action.type) {
-    case 'add':
+    case 'ADD':
       return [
         ...state,
         {
@@ -29,16 +29,16 @@ function taskReducer(state: typeof initialState = initialState, action: TaskActi
         },
       ];
 
-    case 'done':
+    case 'DONE':
       return state.map((task) => (task.id === action.id ? { ...task, completed: true } : task));
 
-    case 'undo':
+    case 'UNDO':
       return state.map((task) => (task.id === action.id ? { ...task, completed: false } : task));
 
-    case 'delete':
+    case 'DELETE':
       return state.filter((task) => task.id !== action.id);
 
-    case 'clear':
+    case 'CLEAR':
       return state.filter((task) => !task.completed);
 
     default:
@@ -69,7 +69,7 @@ const useTasks = () => {
   return context;
 };
 
-type TodoTaskActions = Exclude<TaskActions, { type: 'undo' } | { type: 'clear' }>;
+type TodoTaskActions = Exclude<TaskActions, { type: 'UNDO' } | { type: 'CLEAR' }>;
 const useTodoTask = () => {
   const [tasks, dispatch] = useTasks();
   const todo = tasks.filter((task) => !task.completed);
@@ -86,7 +86,7 @@ const useTodoTask = () => {
   return [{ status, list: todo }, todoDispatch] as const;
 };
 
-type DoneTaskActions = Exclude<TaskActions, { type: 'add' } | { type: 'done' }>;
+type DoneTaskActions = Exclude<TaskActions, { type: 'ADD' } | { type: 'DONE' }>;
 const useDoneTask = () => {
   const [tasks, dispatch] = useTasks();
   const done = tasks.filter((task) => task.completed);
