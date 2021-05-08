@@ -2,7 +2,7 @@ const DeleteIcon = () => (
   <svg
     x="0px"
     y="0px"
-    className="text-gray-400 fill-current"
+    className="text-gray-500 fill-current"
     viewBox="-40 0 427 427.00131"
     xmlns="http://www.w3.org/2000/svg"
   >
