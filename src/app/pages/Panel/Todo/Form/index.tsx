@@ -10,12 +10,13 @@ function generatePlaceholder(counter: number) {
   return 'ok, add some tasks here';
 }
 
-interface FormProps {
+type FormProps = {
   counter: number;
   onSubmit: (description: string) => void;
-}
+};
 
-const Form = ({ onSubmit, counter }: FormProps) => {
+const Form = (props: FormProps) => {
+  const { onSubmit, counter } = props;
   const [input, setInput] = useLocalStorageState('another-todo-list:input', '');
   const placeholder = generatePlaceholder(counter);
 

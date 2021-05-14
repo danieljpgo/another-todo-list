@@ -2,20 +2,20 @@ import * as React from 'react';
 import { Children } from '../../types/children';
 import { useLocalStorageReducer } from '../../utils/hooks';
 
-interface Task {
+type Task = {
   id: string;
   description: string;
   completed: boolean;
-}
-
-const initialState: Task[] = [];
+};
 
 type TaskActions =
-  | { type: 'ADD'; description: string }
-  | { type: 'DONE'; id: string }
-  | { type: 'UNDO'; id: string }
-  | { type: 'DELETE'; id: string }
-  | { type: 'CLEAR' };
+| { type: 'ADD'; description: string }
+| { type: 'DONE'; id: string }
+| { type: 'UNDO'; id: string }
+| { type: 'DELETE'; id: string }
+| { type: 'CLEAR' };
+
+const initialState: Task[] = [];
 
 function taskReducer(state: typeof initialState = initialState, action: TaskActions) {
   switch (action.type) {

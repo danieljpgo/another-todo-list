@@ -2,11 +2,11 @@ import * as React from 'react';
 import { motion } from 'framer-motion';
 import Text from '../Text';
 
-interface ListProps {
+type ListProps = {
   message: string;
   'aria-label': string;
   children: React.ReactNode[];
-}
+};
 
 const List = (props: ListProps) => {
   const { message, 'aria-label': ariaLabel, children } = props;

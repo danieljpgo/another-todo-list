@@ -1,13 +1,13 @@
 import * as React from 'react';
 
-export interface CheckboxProps {
+export type CheckboxProps = {
   id: string;
   name: string,
   title: string;
   checked: boolean;
   'aria-label': string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-}
+};
 
 const Checkbox = (props: CheckboxProps) => {
   const {

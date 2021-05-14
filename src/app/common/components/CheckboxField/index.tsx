@@ -2,9 +2,9 @@ import * as React from 'react';
 import Checkbox, { CheckboxProps } from '../Checkbox';
 import Text from '../Text';
 
-interface CheckboxFieldProps extends CheckboxProps {
+type CheckboxFieldProps = CheckboxProps & {
   children: string;
-}
+};
 
 const CheckboxField = (props: CheckboxFieldProps) => {
   const {

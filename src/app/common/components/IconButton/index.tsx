@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Children } from '../../types/children';
 
-interface IconButtonProps extends Children {
+type IconButtonProps = Children & {
   title: string,
   'aria-label': string,
   onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,
-}
+};
 
 const IconButton = (props: IconButtonProps) => {
   const {

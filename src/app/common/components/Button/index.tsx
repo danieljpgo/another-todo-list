@@ -1,13 +1,13 @@
 import * as React from 'react';
 import Text from '../Text';
 
-interface ButtonProps {
+type ButtonProps = {
   type?: 'button' | 'reset' | 'submit';
   title: string;
   children: string;
   disabled?: boolean;
   onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-}
+};
 
 const Button = (props: ButtonProps) => {
   const {

@@ -4,10 +4,10 @@ const variants = {
   title: 'text-gray-500 text-xl font-bold',
 } as const;
 
-interface TextProps {
+type TextProps = {
   variant?: keyof typeof variants;
   children: string;
-}
+};
 
 const Text = (props: TextProps) => {
   const { children, variant = 'base' } = props;

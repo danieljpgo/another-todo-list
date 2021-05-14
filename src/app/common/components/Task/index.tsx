@@ -5,12 +5,12 @@ import CheckboxField from '../CheckboxField';
 const undo = 'undo task';
 const complete = 'complete task';
 
-interface TaskProps extends Children {
+type TaskProps = Children & {
   id: string;
   checked: boolean;
   description: string;
   onCheckedChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-}
+};
 
 const Task = (props: TaskProps) => {
   const {
