@@ -1,6 +1,22 @@
 import * as React from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import Text from '../Text';
+
+const animation: Variants = {
+  show: {
+    transition: {
+      when: 'beforeChildren',
+      staggerChildren: 0.1,
+    },
+  },
+  out: {
+    transition: {
+      staggerChildren: 0.05,
+      staggerDirection: -1,
+      when: 'afterChildren',
+    },
+  },
+};
 
 type ListProps = {
   message: string;
@@ -14,20 +30,24 @@ const List = (props: ListProps) => {
   return (
     <motion.div
       layout
-      className="px-5 bg-white rounded-lg shadow-md py-7 max-h-80"
+      className={`${children.length || message ? 'py-7' : 'py-0'} px-5 bg-white rounded-lg shadow-md max-h-80`}
     >
       <div className={`h-full px-2 overflow-y-auto ${children.length > 5 && 'border-t border-b border-gray-200'}`}>
-        <ul
-          aria-label={ariaLabel}
+        <motion.ul
           className="grid divide-y divide-gray-200"
+          aria-label={ariaLabel}
+          variants={animation}
+          initial="hidden"
+          animate="show"
+          exit="out"
         >
           {children}
           {!children.length && (
-          <li className="text-center">
-            <Text variant="sub">{message}</Text>
-          </li>
+            <li className="text-center">
+              <Text variant="sub">{message}</Text>
+            </li>
           )}
-        </ul>
+        </motion.ul>
       </div>
     </motion.div>
   );

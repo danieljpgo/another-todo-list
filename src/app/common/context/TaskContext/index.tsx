@@ -50,7 +50,7 @@ type TaskContextType = [Task[], React.Dispatch<TaskActions>] | undefined;
 const TaskContext = React.createContext<TaskContextType>(undefined);
 
 type TaskProviderProps = Children;
-const TaskProvider = (props: TaskProviderProps) => {
+export const TaskProvider = (props: TaskProviderProps) => {
   const { children } = props;
   const [tasks, dispatch] = useLocalStorageReducer('another-todo-list:tasks', taskReducer, initialState);
 
@@ -76,7 +76,7 @@ function generateTodoStatus(counter: number) {
 }
 
 type TodoTaskActions = Exclude<TaskActions, { type: 'UNDO' } | { type: 'CLEAR' }>;
-const useTodoTask = () => {
+export const useTodoTask = () => {
   const [tasks, dispatch] = useTasks();
   const todo = tasks.filter((task) => !task.completed);
   const done = tasks.filter((task) => task.completed);
@@ -97,7 +97,7 @@ function generateDoneStatus(counter: number) {
 }
 
 type DoneTaskActions = Exclude<TaskActions, { type: 'ADD' } | { type: 'DONE' }>;
-const useDoneTask = () => {
+export const useDoneTask = () => {
   const [tasks, dispatch] = useTasks();
   const done = tasks.filter((task) => task.completed);
   const todo = tasks.filter((task) => !task.completed);
@@ -109,5 +109,3 @@ const useDoneTask = () => {
 
   return [{ status, list: done }, doneDispatch] as const;
 };
-
-export { TaskProvider, useTodoTask, useDoneTask };

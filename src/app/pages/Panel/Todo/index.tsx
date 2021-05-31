@@ -1,4 +1,3 @@
-import { AnimatePresence } from 'framer-motion';
 import { useTodoTask } from '../../../common/context/TaskContext';
 import IconButton from '../../../common/components/IconButton';
 import DeleteIcon from '../../../common/components/DeleteIcon';
@@ -23,30 +22,28 @@ const Todo = () => {
 
   return (
     <div className="grid content-end gap-4 auto-rows-min">
-      <AnimatePresence>
-        <List
-          message={status}
-          aria-label="todo tasks"
-        >
-          {list.map((task) => (
-            <Task
-              key={task.id}
-              id={task.id}
-              description={task.description}
-              checked={task.completed}
-              onCheckedChange={() => handleDoneTask(task.id)}
+      <List
+        message={status}
+        aria-label="todo tasks"
+      >
+        {list.map((task) => (
+          <Task
+            key={task.id}
+            id={task.id}
+            checked={task.completed}
+            description={task.description}
+            onCheckedChange={() => handleDoneTask(task.id)}
+          >
+            <IconButton
+              title="delete task"
+              aria-label={`delete task ${task.description}`}
+              onClick={() => handleDeleteTask(task.id)}
             >
-              <IconButton
-                title="delete task"
-                aria-label={`delete task ${task.description}`}
-                onClick={() => handleDeleteTask(task.id)}
-              >
-                <DeleteIcon />
-              </IconButton>
-            </Task>
-          ))}
-        </List>
-      </AnimatePresence>
+              <DeleteIcon />
+            </IconButton>
+          </Task>
+        ))}
+      </List>
       <div>
         <Form
           counter={list.length}

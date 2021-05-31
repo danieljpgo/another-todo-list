@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useLocalStorageState } from '../../../../common/utils/hooks/useLocalStorageState';
+import { useLocalStorageState } from '../../../../common/utils/hooks';
 import Input from '../../../../common/components/Input';
 
 function generatePlaceholder(counter: number) {
@@ -20,8 +20,8 @@ const Form = (props: FormProps) => {
   const [input, setInput] = useLocalStorageState('another-todo-list:input', '');
   const placeholder = generatePlaceholder(counter);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>, description: string) {
-    e.preventDefault();
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>, description: string) {
+    event.preventDefault();
     onSubmit(description);
     setInput('');
   }
@@ -44,7 +44,7 @@ const Form = (props: FormProps) => {
         type="text"
         value={input}
         placeholder={placeholder}
-        onChange={(e) => handleInputChange(e.currentTarget.value)}
+        onChange={(event) => handleInputChange(event.currentTarget.value)}
       />
     </form>
   );
