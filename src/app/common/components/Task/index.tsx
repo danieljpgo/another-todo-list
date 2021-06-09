@@ -1,29 +1,6 @@
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Children } from '../../types/children';
 import CheckboxField from '../CheckboxField';
-
-const animation: Variants = {
-  hidden: {
-    y: 50,
-    opacity: 0,
-  },
-  show: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.4,
-      ease: [0.6, -0.05, 0.01, 0.99],
-    },
-  },
-  out: {
-    y: 50,
-    opacity: 0,
-    transition: {
-      duration: 0.4,
-      ease: [0.6, -0.05, 0.01, 0.99],
-    },
-  },
-};
 
 type TaskProps = Children & {
   id: string;
@@ -46,7 +23,28 @@ const Task = (props: TaskProps) => {
   return (
     <motion.li
       layout
-      variants={animation}
+      variants={{
+        hidden: {
+          y: 50,
+          opacity: 0,
+        },
+        show: {
+          y: 0,
+          opacity: 1,
+          transition: {
+            duration: 0.4,
+            ease: [0.6, -0.05, 0.01, 0.99],
+          },
+        },
+        out: {
+          y: 50,
+          opacity: 0,
+          transition: {
+            duration: 0.4,
+            ease: [0.6, -0.05, 0.01, 0.99],
+          },
+        },
+      }}
       style={{ gridTemplateColumns: 'auto min-content' }}
       className="group grid items-center w-full gap-2 px-3 py-2.5 bg-white "
     >
@@ -68,11 +66,3 @@ const Task = (props: TaskProps) => {
 };
 
 export default Task;
-
-// layoutId={id}
-// initial="hidden"
-// animate="show"
-// exit="exit"
-// initial="hidden"
-// animate="show"
-// exit="out"

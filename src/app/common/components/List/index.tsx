@@ -1,22 +1,6 @@
 import * as React from 'react';
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Text from '../Text';
-
-const animation: Variants = {
-  show: {
-    transition: {
-      when: 'beforeChildren',
-      staggerChildren: 0.1,
-    },
-  },
-  out: {
-    transition: {
-      staggerChildren: 0.05,
-      staggerDirection: -1,
-      when: 'afterChildren',
-    },
-  },
-};
 
 type ListProps = {
   message: string;
@@ -36,7 +20,21 @@ const List = (props: ListProps) => {
         <motion.ul
           className="grid divide-y divide-gray-200"
           aria-label={ariaLabel}
-          variants={animation}
+          variants={{
+            show: {
+              transition: {
+                when: 'beforeChildren',
+                staggerChildren: 0.1,
+              },
+            },
+            out: {
+              transition: {
+                staggerChildren: 0.05,
+                staggerDirection: -1,
+                when: 'afterChildren',
+              },
+            },
+          }}
           initial="hidden"
           animate="show"
           exit="out"

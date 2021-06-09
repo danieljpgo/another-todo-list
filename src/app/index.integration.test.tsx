@@ -1,10 +1,12 @@
 import * as React from 'react';
-import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { render, screen, within } from '@testing-library/react';
+import { createMatchMedia } from './common/utils/helpers/test';
 import App from '.';
 
 beforeEach(() => {
   window.localStorage.clear();
+  window.matchMedia = createMatchMedia({ width: window.innerWidth, height: window.innerHeight });
 });
 
 test('add, delete and finish new task', () => {

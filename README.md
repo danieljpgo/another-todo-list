@@ -62,12 +62,20 @@ TODO
 ## Goals
 
 The goals of this project were:
-TODO
+- TODO
+- TODO
+- TODO
+- TODO
+- TODO
 
 ## Features
 
 The main features of the project are:
-TODO
+- TODO
+- TODO
+- TODO
+- TODO
+- TODO
 
 ## Technologies
 
