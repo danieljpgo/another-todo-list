@@ -32,7 +32,7 @@ const Done = () => {
             id={task.id}
             checked={task.completed}
             description={task.description}
-            onCheckedChange={() => handleUndoTask(task.id)}
+            onCheckedChange={handleUndoTask}
           >
             <IconButton
               title="delete task"
@@ -48,7 +48,7 @@ const Done = () => {
         <Button
           type="button"
           title="clear finish tasks"
-          onClick={() => handleClearTasks()}
+          onClick={handleClearTasks}
         >
           clear
         </Button>

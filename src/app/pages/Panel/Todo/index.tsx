@@ -32,7 +32,7 @@ const Todo = () => {
             id={task.id}
             checked={task.completed}
             description={task.description}
-            onCheckedChange={() => handleDoneTask(task.id)}
+            onCheckedChange={handleDoneTask}
           >
             <IconButton
               title="delete task"
@@ -47,7 +47,7 @@ const Todo = () => {
       <div>
         <Form
           counter={list.length}
-          onSubmit={(description) => handleAddTask(description)}
+          onSubmit={handleAddTask}
         />
       </div>
     </div>

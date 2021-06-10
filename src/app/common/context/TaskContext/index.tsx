@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Children } from '../../types/children';
 import { useLocalStorageReducer } from '../../utils/hooks';
+import { generateDoneStatus, generateTodoStatus } from './utils';
 
 type Task = {
   id: string;
@@ -69,15 +70,10 @@ const useTasks = () => {
   return context;
 };
 
-function generateTodoStatus(counter: number) {
-  if (counter > 9) return "I'm kind of alone here, add new tasks for me";
-  if (counter > 4) return 'impressive, did you finish this many tasks?';
-  return '';
-}
-
 type TodoTaskActions = Exclude<TaskActions, { type: 'UNDO' } | { type: 'CLEAR' }>;
 export const useTodoTask = () => {
   const [tasks, dispatch] = useTasks();
+
   const todo = tasks.filter((task) => !task.completed);
   const done = tasks.filter((task) => task.completed);
   const status = generateTodoStatus(done.length);
@@ -89,16 +85,10 @@ export const useTodoTask = () => {
   return [{ status, list: todo }, todoDispatch] as const;
 };
 
-function generateDoneStatus(counter: number) {
-  if (counter > 9) return 'I will be alone here, I see ...';
-  if (counter > 6) return "hey, give me some done tasks, I'm alone here";
-  if (counter > 2) return "you're going to complete some tasks, right?";
-  return '';
-}
-
 type DoneTaskActions = Exclude<TaskActions, { type: 'ADD' } | { type: 'DONE' }>;
 export const useDoneTask = () => {
   const [tasks, dispatch] = useTasks();
+
   const done = tasks.filter((task) => task.completed);
   const todo = tasks.filter((task) => !task.completed);
   const status = generateDoneStatus(todo.length);

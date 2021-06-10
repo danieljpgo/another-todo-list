@@ -1,9 +1,9 @@
 <div align="center">
-    <!-- <img
+    <img
       alt="another todo list"
       title="another todo list"
-      src=".github/another-todo-list.svg"
-      width="150px" /> -->
+      src=".github/logo.png"
+      width="120px" />
 </div>
 
 <h1 align="left">Another Todo List</h1>
@@ -33,7 +33,7 @@
    <img alt="test coverage" src="./coverage/badge.svg">
 </p>
 
-> todo
+> Another todo list, because every developer needs one. :memo:
 
 &nbsp;
 
@@ -62,7 +62,7 @@ TODO
 ## Goals
 
 The goals of this project were:
-- TODO
+- Develop a pattern of how to build a global state using `useReducer`, `context` and custom `hooks`, built with [Typescript](https://www.typescriptlang.org/).
 - TODO
 - TODO
 - TODO
@@ -71,11 +71,12 @@ The goals of this project were:
 ## Features
 
 The main features of the project are:
-- TODO
-- TODO
-- TODO
-- TODO
-- TODO
+- Add, complete, delete and undo task.
+- Delete all finish task.
+- Accessibility.
+- Saving actions on local storage.
+- All features tested.
+- All interactions are animated.
 
 ## Technologies
 

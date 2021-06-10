@@ -6,7 +6,7 @@ type TaskProps = Children & {
   id: string;
   checked: boolean;
   description: string;
-  onCheckedChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onCheckedChange: (id: string) => void;
 };
 
 const Task = (props: TaskProps) => {
@@ -54,7 +54,7 @@ const Task = (props: TaskProps) => {
         title={label}
         checked={checked}
         aria-label={`${label} ${description}`}
-        onChange={(event) => onCheckedChange(event)}
+        onChange={() => onCheckedChange(id)}
       >
         {description}
       </CheckboxField>

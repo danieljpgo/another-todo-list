@@ -5,7 +5,7 @@ Hey!
 
 I'm Daniel, the creator and maintainer of this project, thank you so much for your interest in contributing.
 
-- If you encounter bugs, open a Issue, with the description and steps to reproduce it easily.
+- If you encounter bugs, open a Issue with the description and steps to reproduce it easily.
 - If you have ideas for improving the project, go ahead and share through a new Issue or open a PR.
 - If you want to talk about the project, implementations, or any related topic, open a Issue or find me on Twitter.
 
