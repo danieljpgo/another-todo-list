@@ -62,16 +62,14 @@ TODO
 ## Goals
 
 The goals of this project were:
-- Develop a pattern of how to build a global state using `useReducer`, `context` and custom `hooks`, built with [Typescript](https://www.typescriptlang.org/).
-- TODO
-- TODO
-- TODO
-- TODO
+- Build an app with a focus on accessibility, cover the bases and learn in the process.
+- Develop my first app using TDD.
+- Develop an efficient pattern for using context with [TypeScript](https://www.typescriptlang.org/), creating a global state in combination with useReducer and custom hooks.
 
 ## Features
 
 The main features of the project are:
-- Add, complete, delete and undo task.
+- Add, finish, delete and undo task.
 - Delete all finish task.
 - Accessibility.
 - Saving actions on local storage.
@@ -86,7 +84,7 @@ The main technologies used to develop the project were:
 - [Tailwind](https://tailwindcss.com/)
 - [Testing Library](https://testing-library.com/)
 - [Framer Motion](https://www.framer.com/motion/)
-- [Typescript](https://www.typescriptlang.org/)
+- [TypeScript](https://www.typescriptlang.org/)
 
 This project was bootstrapped with:
 
@@ -125,26 +123,3 @@ This project is under the [MIT license](https://github.com/danieljpgo/another-to
 <div>Released in 2021.</div>
 
 Make with ❤️ by [Daniel Jorge](https://github.com/danieljpgo)
-
-<!-- ## TODO
-
-- [x] Limpar CRA
-- [x] Eslint com typescript
-- [x] Craco e Tailwind
-- [x] Estrutura
-- [x] Provider com Context
-- [x] TDD
-- [x] Acessibilidade
-- [x] Layout
-- [x] Estilização
-- [ ] Layout Mobile
-- [ ] Textos
-- [ ] Framer Motion
-- [x] Local Storage - Text field
-- [x] Local Storage - tasks
-- [x] Deploy
-- [x] Documentação base
-- [ ] Documentação
-- [x] Testing Badge
-
--->
