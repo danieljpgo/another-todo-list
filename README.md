@@ -3,7 +3,7 @@
       alt="another todo list"
       title="another todo list"
       src=".github/logo.png"
-      width="120px" />
+      width="100px" />
 </div>
 
 <h1 align="left">Another Todo List</h1>
@@ -48,22 +48,23 @@
 </p>
 
 <div align="center">
-   <!-- <img
+   <img
       alt="another todo list"
       title="another todo list"
       src=".github/anim.gif"
-      width="640px" /> -->
+      width="640px" />
 </div>
 
 ## Project
 
-TODO
+Project is a to-do list application, which you can use on your phone or desktop.
+
 
 ## Goals
 
 The goals of this project were:
 - Build an app with a focus on accessibility, cover the bases and learn in the process.
-- Develop my first app using TDD.
+- Develop my first app using Test Driven Development (TDD).
 - Develop an efficient pattern for using context with [TypeScript](https://www.typescriptlang.org/), creating a global state in combination with useReducer and custom hooks.
 
 ## Features
