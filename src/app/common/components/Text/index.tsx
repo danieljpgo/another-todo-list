@@ -9,10 +9,8 @@ type TextProps = {
   children: string;
 };
 
-const Text = (props: TextProps) => {
+export default function Text(props: TextProps) {
   const { children, variant = 'base' } = props;
 
   return <p className={`${variants[variant]}`}>{children}</p>;
-};
-
-export default Text;
+}

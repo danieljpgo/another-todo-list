@@ -8,7 +8,7 @@ type ListProps = {
   children: React.ReactNode[];
 };
 
-const List = (props: ListProps) => {
+export default function List(props: ListProps) {
   const { message, 'aria-label': ariaLabel, children } = props;
 
   return (
@@ -49,6 +49,4 @@ const List = (props: ListProps) => {
       </div>
     </motion.div>
   );
-};
-
-export default List;
+}

@@ -9,7 +9,7 @@ type TaskProps = Children & {
   onCheckedChange: (id: string) => void;
 };
 
-const Task = (props: TaskProps) => {
+export default function Task(props: TaskProps) {
   const {
     id,
     checked,
@@ -63,6 +63,4 @@ const Task = (props: TaskProps) => {
       </div>
     </motion.li>
   );
-};
-
-export default Task;
+}

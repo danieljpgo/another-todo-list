@@ -9,7 +9,7 @@ type InputProps = {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const Input = (props: InputProps) => {
+export default function Input(props: InputProps) {
   const {
     id,
     name,
@@ -31,6 +31,4 @@ const Input = (props: InputProps) => {
       onChange={onChange}
     />
   );
-};
-
-export default Input;
+}

@@ -9,7 +9,7 @@ type ButtonProps = {
   onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 };
 
-const Button = (props: ButtonProps) => {
+export default function Button(props: ButtonProps) {
   const {
     title,
     type = 'button',
@@ -31,6 +31,4 @@ const Button = (props: ButtonProps) => {
       </Text>
     </button>
   );
-};
-
-export default Button;
+}

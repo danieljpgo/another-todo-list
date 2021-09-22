@@ -9,7 +9,7 @@ export type CheckboxProps = {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const Checkbox = (props: CheckboxProps) => {
+export default function Checkbox(props: CheckboxProps) {
   const {
     id,
     name,
@@ -32,6 +32,4 @@ const Checkbox = (props: CheckboxProps) => {
     />
 
   );
-};
-
-export default Checkbox;
+}

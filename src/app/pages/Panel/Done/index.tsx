@@ -5,7 +5,7 @@ import Button from '../../../common/components/Button';
 import List from '../../../common/components/List';
 import Task from '../../../common/components/Task';
 
-const Done = () => {
+export default function Done() {
   const [{ list, status }, dispatch] = useDoneTask();
 
   function handleUndoTask(id: string) {
@@ -55,6 +55,4 @@ const Done = () => {
       </div>
     </div>
   );
-};
-
-export default Done;
+}

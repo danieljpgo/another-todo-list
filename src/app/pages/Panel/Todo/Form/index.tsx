@@ -15,7 +15,7 @@ type FormProps = {
   onSubmit: (description: string) => void;
 };
 
-const Form = (props: FormProps) => {
+export default function Form(props: FormProps) {
   const { onSubmit, counter } = props;
   const [input, setInput] = useLocalStorageState('another-todo-list:input', '');
   const placeholder = generatePlaceholder(counter);
@@ -48,6 +48,4 @@ const Form = (props: FormProps) => {
       />
     </form>
   );
-};
-
-export default Form;
+}

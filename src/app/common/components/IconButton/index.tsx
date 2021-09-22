@@ -7,7 +7,7 @@ type IconButtonProps = Children & {
   onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,
 };
 
-const IconButton = (props: IconButtonProps) => {
+export default function IconButton(props: IconButtonProps) {
   const {
     title,
     children,
@@ -26,6 +26,4 @@ const IconButton = (props: IconButtonProps) => {
       {children}
     </button>
   );
-};
-
-export default IconButton;
+}

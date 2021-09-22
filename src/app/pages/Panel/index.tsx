@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useMediaQuery } from '../../common/utils/hooks/useMediaQuery';
+import { useMediaQuery } from '../../common/utils/hooks';
 import Button from '../../common/components/Button';
 import Done from './Done';
 import Todo from './Todo';
 
 type View = 'todo' | 'done';
 
-const Panel = () => {
+export default function Panel() {
   const [view, setView] = React.useState<View>('todo');
   const isMobile = useMediaQuery('sm');
 
@@ -62,6 +62,4 @@ const Panel = () => {
       )}
     </>
   );
-};
-
-export default Panel;
+}

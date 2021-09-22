@@ -5,7 +5,7 @@ import Task from '../../../common/components/Task';
 import List from '../../../common/components/List';
 import Form from './Form';
 
-const Todo = () => {
+export default function Todo() {
   const [{ list, status }, dispatch] = useTodoTask();
 
   function handleDoneTask(id: string) {
@@ -52,6 +52,4 @@ const Todo = () => {
       </div>
     </div>
   );
-};
-
-export default Todo;
+}

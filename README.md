@@ -33,7 +33,7 @@
    <img alt="test coverage" src="./coverage/badge.svg">
 </p>
 
-> Another todo list, because every developer needs one. :memo:
+> Another to-do list, because every developer needs one. :memo:
 
 &nbsp;
 
@@ -57,7 +57,7 @@
 
 ## Project
 
-Project is a to-do list application, which you can use on your phone or desktop.
+Project is a to-do list app, which you can use on your phone or desktop.
 
 
 ## Goals
@@ -124,3 +124,7 @@ This project is under the [MIT license](https://github.com/danieljpgo/another-to
 <div>Released in 2021.</div>
 
 Make with ❤️ by [Daniel Jorge](https://github.com/danieljpgo)
+
+
+<!-- TODO
+index.integration.test (refatorar) -->

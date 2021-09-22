@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Checkbox, { CheckboxProps } from '../Checkbox';
 import Text from '../Text';
 
@@ -6,7 +5,7 @@ type CheckboxFieldProps = CheckboxProps & {
   children: string;
 };
 
-const CheckboxField = (props: CheckboxFieldProps) => {
+export default function CheckboxField(props: CheckboxFieldProps) {
   const {
     id,
     name,
@@ -35,6 +34,4 @@ const CheckboxField = (props: CheckboxFieldProps) => {
       </label>
     </div>
   );
-};
-
-export default CheckboxField;
+}
