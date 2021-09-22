@@ -1,11 +1,11 @@
-import { useDoneTask } from '../../../common/context/TaskContext';
-import IconButton from '../../../common/components/IconButton';
-import DeleteIcon from '../../../common/components/DeleteIcon';
-import Button from '../../../common/components/Button';
-import List from '../../../common/components/List';
-import Task from '../../../common/components/Task';
+import { useDoneTask } from '../../common/context/taskContext';
+import IconButton from '../../common/components/IconButton/IconButton';
+import DeleteIcon from '../../common/components/DeleteIcon/DeleteIcon';
+import Button from '../../common/components/Button/Button';
+import List from '../../common/components/List/List';
+import Task from '../../common/components/Task/Task';
 
-export default function Done() {
+export default function PanelDone() {
   const [{ list, status }, dispatch] = useDoneTask();
 
   function handleUndoTask(id: string) {

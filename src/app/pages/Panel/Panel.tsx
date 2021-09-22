@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useMediaQuery } from '../../common/utils/hooks';
-import Button from '../../common/components/Button';
-import Done from './Done';
-import Todo from './Todo';
+import { useMediaQuery } from '../../common/hooks';
+import Button from '../../common/components/Button/Button';
+import PanelDone from './PanelDone';
+import PanelTodo from './PanelTodo';
 
 type View = 'todo' | 'done';
 
@@ -31,7 +31,7 @@ export default function Panel() {
               damping: 15,
             }}
           >
-            <Todo />
+            <PanelTodo />
           </motion.div>
           <motion.div
             key="right"
@@ -45,7 +45,7 @@ export default function Panel() {
               damping: 15,
             }}
           >
-            <Done />
+            <PanelDone />
           </motion.div>
         </AnimatePresence>
       </motion.div>

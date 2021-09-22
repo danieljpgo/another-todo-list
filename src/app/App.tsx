@@ -1,5 +1,5 @@
-import { TaskProvider } from './common/context/TaskContext';
-import Panel from './pages/Panel';
+import { TaskProvider } from './common/context/taskContext';
+import Panel from './pages/Panel/Panel';
 
 export default function App() {
   return (

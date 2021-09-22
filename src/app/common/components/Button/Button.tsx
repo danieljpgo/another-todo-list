@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Text from '../Text';
+import Text from '../Text/Text';
 
 type ButtonProps = {
   type?: 'button' | 'reset' | 'submit';

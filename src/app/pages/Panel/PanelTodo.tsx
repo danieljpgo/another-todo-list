@@ -1,11 +1,11 @@
-import { useTodoTask } from '../../../common/context/TaskContext';
-import IconButton from '../../../common/components/IconButton';
-import DeleteIcon from '../../../common/components/DeleteIcon';
-import Task from '../../../common/components/Task';
-import List from '../../../common/components/List';
-import Form from './Form';
+import { useTodoTask } from '../../common/context/taskContext';
+import IconButton from '../../common/components/IconButton/IconButton';
+import DeleteIcon from '../../common/components/DeleteIcon/DeleteIcon';
+import Task from '../../common/components/Task/Task';
+import List from '../../common/components/List/List';
+import PanelTodoForm from './PanelTodoForm';
 
-export default function Todo() {
+export default function PanelTodo() {
   const [{ list, status }, dispatch] = useTodoTask();
 
   function handleDoneTask(id: string) {
@@ -45,7 +45,7 @@ export default function Todo() {
         ))}
       </List>
       <div>
-        <Form
+        <PanelTodoForm
           counter={list.length}
           onSubmit={handleAddTask}
         />

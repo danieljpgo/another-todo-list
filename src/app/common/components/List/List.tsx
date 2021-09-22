@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { motion } from 'framer-motion';
-import Text from '../Text';
+import Text from '../Text/Text';
 
 type ListProps = {
   message: string;

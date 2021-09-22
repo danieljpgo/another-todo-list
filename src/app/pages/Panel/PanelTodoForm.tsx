@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { useLocalStorageState } from '../../../../common/utils/hooks';
-import Input from '../../../../common/components/Input';
+import { useLocalStorageState } from '../../common/hooks';
+import Input from '../../common/components/Input/Input';
 
 function generatePlaceholder(counter: number) {
   if (counter > 9) return "i don't even care anymore";
@@ -15,7 +15,7 @@ type FormProps = {
   onSubmit: (description: string) => void;
 };
 
-export default function Form(props: FormProps) {
+export default function PanelTodoForm(props: FormProps) {
   const { onSubmit, counter } = props;
   const [input, setInput] = useLocalStorageState('another-todo-list:input', '');
   const placeholder = generatePlaceholder(counter);

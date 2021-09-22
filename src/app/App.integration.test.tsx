@@ -1,8 +1,8 @@
 import * as React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, screen, within } from '@testing-library/react';
-import { createMatchMedia } from './common/utils/helpers/test';
-import App from '.';
+import { createMatchMedia } from '../lib/test';
+import App from './App';
 
 beforeEach(() => {
   window.localStorage.clear();

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Children } from '../../types/children';
-import CheckboxField from '../CheckboxField';
+import CheckboxField from '../CheckboxField/CheckboxField';
 
 type TaskProps = Children & {
   id: string;

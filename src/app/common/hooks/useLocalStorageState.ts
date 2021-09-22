@@ -1,13 +1,13 @@
 import * as React from 'react';
 
-export const useLocalStorageState = <State>(
+export function useLocalStorageState<State>(
   key: string,
   initialState: State,
   {
     serialize = JSON.stringify,
     deserialize = JSON.parse,
   } = {},
-) => {
+) {
   const [state, setState] = React.useState(() => {
     const init = typeof initialState === 'function' ? initialState() : initialState;
     try {
@@ -32,4 +32,4 @@ export const useLocalStorageState = <State>(
   }, [key, state, serialize]);
 
   return [state, setState] as const;
-};
+}
