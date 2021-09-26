@@ -61,6 +61,7 @@ function taskReducer(state: typeof initialState = initialState, action: TaskActi
 
 type TaskContextType = [Task[], React.Dispatch<TaskActions>] | undefined;
 const TaskContext = React.createContext<TaskContextType>(undefined);
+TaskContext.displayName = 'TaskContext';
 
 type TaskProviderProps = Children;
 export const TaskProvider = (props: TaskProviderProps) => {
