@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Children } from '../../types/children';
 
-type IconButtonProps = Children & {
+type IconButtonProps = {
+  children: React.ReactNode
   title: string,
   'aria-label': string,
   onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,

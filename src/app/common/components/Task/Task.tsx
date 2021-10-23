@@ -1,8 +1,9 @@
+import * as React from 'react';
 import { motion } from 'framer-motion';
-import { Children } from '../../types/children';
 import CheckboxField from '../CheckboxField/CheckboxField';
 
-type TaskProps = Children & {
+type TaskProps = {
+  children: React.ReactNode
   id: string;
   checked: boolean;
   description: string;
