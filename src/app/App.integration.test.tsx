@@ -107,7 +107,7 @@ test('tasks, actions and input is saved even when reloading the page', () => {
 test('displays all messages in the new task field placeholder', () => {
   render(<App />);
 
-  expect(screen.getByPlaceholderText(/ok, add some tasks here/i)).toBeInTheDocument();
+  expect(screen.getByPlaceholderText(/ok, add some task here/i)).toBeInTheDocument();
 
   userEvent.type(screen.getByLabelText(/new task/i), '1o test');
   userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
@@ -158,7 +158,7 @@ test('different message for empty tasks and done tasks', () => {
   userEvent.type(screen.getByLabelText(/new task/i), '7o test');
   userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
   expect(screen.queryByText(/you're going to complete some tasks, right?/i)).not.toBeInTheDocument();
-  expect(screen.getByText(/hey, give me some done tasks, I'm alone here/i)).toBeInTheDocument();
+  expect(screen.getByText(/I'm kinda alone here you know/i)).toBeInTheDocument();
 
   userEvent.type(screen.getByLabelText(/new task/i), '8o test');
   userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
@@ -166,8 +166,8 @@ test('different message for empty tasks and done tasks', () => {
   userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
   userEvent.type(screen.getByLabelText(/new task/i), '10o test');
   userEvent.type(screen.getByLabelText(/new task/i), '{enter}');
-  expect(screen.queryByText(/hey, give me some done tasks, I'm alone here/i)).not.toBeInTheDocument();
-  expect(screen.getByText(/I will be alone here, I see .../i)).toBeInTheDocument();
+  expect(screen.queryByText(/I'm kinda alone here you know/i)).not.toBeInTheDocument();
+  expect(screen.getByText(/see you next year/i)).toBeInTheDocument();
 
   userEvent.click(screen.getByRole('checkbox', { name: /complete task 1o test/i }));
   userEvent.click(screen.getByRole('checkbox', { name: /complete task 2o test/i }));
@@ -180,13 +180,13 @@ test('different message for empty tasks and done tasks', () => {
   userEvent.click(screen.getByRole('checkbox', { name: /complete task 9o test/i }));
   userEvent.click(screen.getByRole('checkbox', { name: /complete task 10o test/i }));
 
-  expect(screen.getByText(/I'm kind of alone here, add new tasks for me/i)).toBeInTheDocument();
+  expect(screen.getByText(/I can't believe it, congratulations/i)).toBeInTheDocument();
   userEvent.click(screen.getByRole('button', { name: /delete task 10o test/i }));
   userEvent.click(screen.getByRole('button', { name: /delete task 9o test/i }));
   userEvent.click(screen.getByRole('button', { name: /delete task 8o test/i }));
   userEvent.click(screen.getByRole('button', { name: /delete task 7o test/i }));
   userEvent.click(screen.getByRole('button', { name: /delete task 6o test/i }));
 
-  expect(screen.queryByText(/I'm kind of alone here, add new tasks for me/i)).not.toBeInTheDocument();
-  expect(screen.getByText(/impressive, did you finish this many tasks?/i)).toBeInTheDocument();
+  expect(screen.queryByText(/I can't believe it, congratulations/i)).not.toBeInTheDocument();
+  expect(screen.getByText(/impressive, did you completed all these tasks?/i)).toBeInTheDocument();
 });

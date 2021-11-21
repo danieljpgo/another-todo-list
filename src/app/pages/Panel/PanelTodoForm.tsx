@@ -1,24 +1,30 @@
 import * as React from 'react';
+import { Input } from '../../common/components';
 import { useLocalStorageState } from '../../common/hooks';
-import Input from '../../common/components/Input/Input';
+import { useDoneTask, useTodoTask } from '../../common/context/taskContext';
 
-function generatePlaceholder(counter: number) {
-  if (counter > 9) return "i don't even care anymore";
-  if (counter > 6) return 'ok, keep going ...';
-  if (counter > 4) return 'are you sure ?';
-  if (counter > 2) return 'more task ?';
-  return 'ok, add some tasks here';
+function generatePlaceholder(todoCount: number, doneCount: number) {
+  if (doneCount > 7 && todoCount === 0) return 'great job';
+  if (doneCount > 4 && todoCount < 3) return 'keep it going';
+  if (doneCount > 1 && todoCount < 5) return 'can be better';
+  if (todoCount > 9) return "i don't even care anymore";
+  if (todoCount > 6) return 'ok, keep going ...';
+  if (todoCount > 4) return 'are you sure?';
+  if (todoCount > 2) return 'more tasks?';
+  return 'ok, add some task here';
 }
 
 type FormProps = {
-  counter: number;
   onSubmit: (description: string) => void;
 };
 
 export default function PanelTodoForm(props: FormProps) {
-  const { onSubmit, counter } = props;
+  const { onSubmit } = props;
   const [input, setInput] = useLocalStorageState('another-todo-list:input', '');
-  const placeholder = generatePlaceholder(counter);
+  const [todo] = useTodoTask();
+  const [done] = useDoneTask();
+
+  const placeholder = generatePlaceholder(todo.list.length, done.list.length);
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>, description: string) {
     event.preventDefault();
@@ -31,7 +37,7 @@ export default function PanelTodoForm(props: FormProps) {
   }
 
   return (
-    <form onSubmit={(e) => handleSubmit(e, input)}>
+    <form onSubmit={(event) => handleSubmit(event, input)}>
       <label
         className="sr-only"
         htmlFor="newTask"

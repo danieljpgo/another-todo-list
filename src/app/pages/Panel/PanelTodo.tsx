@@ -1,8 +1,7 @@
 import { useTodoTask } from '../../common/context/taskContext';
-import IconButton from '../../common/components/IconButton/IconButton';
-import DeleteIcon from '../../common/components/DeleteIcon/DeleteIcon';
-import Task from '../../common/components/Task/Task';
-import List from '../../common/components/List/List';
+import {
+  List, Task, IconButton, DeleteIcon,
+} from '../../common/components';
 import PanelTodoForm from './PanelTodoForm';
 
 export default function PanelTodo() {
@@ -44,12 +43,9 @@ export default function PanelTodo() {
           </Task>
         ))}
       </List>
-      <div>
-        <PanelTodoForm
-          counter={list.length}
-          onSubmit={handleAddTask}
-        />
-      </div>
+      <PanelTodoForm
+        onSubmit={handleAddTask}
+      />
     </div>
   );
 }

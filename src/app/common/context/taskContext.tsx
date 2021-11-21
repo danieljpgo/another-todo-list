@@ -2,15 +2,15 @@ import * as React from 'react';
 import { useLocalStorageReducer } from '../hooks';
 
 export function generateTodoStatus(counter: number) {
-  if (counter > 9) return "I'm kind of alone here, add new tasks for me";
-  if (counter > 4) return 'impressive, did you finish this many tasks?';
+  if (counter > 9) return "* I can't believe it, congratulations";
+  if (counter > 4) return '* impressive, did you completed all these tasks?';
   return '';
 }
 
 export function generateDoneStatus(counter: number) {
-  if (counter > 9) return 'I will be alone here, I see ...';
-  if (counter > 6) return "hey, give me some done tasks, I'm alone here";
-  if (counter > 2) return "you're going to complete some tasks, right?";
+  if (counter > 9) return '* see you next year';
+  if (counter > 6) return "* I'm kinda alone here you know";
+  if (counter > 2) return "* you're going to complete some tasks, right?";
   return '';
 }
 
@@ -21,11 +21,11 @@ type Task = {
 };
 
 type TaskActions =
-| { type: 'ADD'; description: string }
-| { type: 'DONE'; id: string }
-| { type: 'UNDO'; id: string }
-| { type: 'DELETE'; id: string }
-| { type: 'CLEAR' };
+  | { type: 'ADD'; description: string }
+  | { type: 'DONE'; id: string }
+  | { type: 'UNDO'; id: string }
+  | { type: 'DELETE'; id: string }
+  | { type: 'CLEAR' };
 
 const initialState: Task[] = [];
 

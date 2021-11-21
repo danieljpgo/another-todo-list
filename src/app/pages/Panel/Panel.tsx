@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useMediaQuery } from '../../common/hooks';
-import Button from '../../common/components/Button/Button';
+import { Button } from '../../common/components';
 import PanelDone from './PanelDone';
 import PanelTodo from './PanelTodo';
 

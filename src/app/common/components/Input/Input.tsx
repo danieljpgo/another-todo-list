@@ -27,7 +27,7 @@ export default function Input(props: InputProps) {
       value={value}
       placeholder={placeholder}
       autoComplete="off"
-      className="block w-full text-gray-500 placeholder-gray-500 px-5 py-2.5 transition-all duration-200 border-none rounded-lg shadow-md outline-none focus:outline-none focus:ring focus:ring-blue-200"
+      className="block w-full text-gray-500 placeholder-gray-400 px-5 py-2.5 transition-all duration-200 border-none rounded-lg shadow-md outline-none focus:outline-none focus:ring focus:ring-blue-200"
       onChange={onChange}
     />
   );
