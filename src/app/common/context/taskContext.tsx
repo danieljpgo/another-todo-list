@@ -96,7 +96,7 @@ export function useTodoTask() {
     return dispatch(actions);
   }
 
-  return [{ status, list: todo }, todoDispatch] as const;
+  return [{ status, tasks: todo }, todoDispatch] as const;
 }
 
 type DoneTaskActions = Exclude<TaskActions, { type: 'ADD' } | { type: 'DONE' }>;
@@ -111,5 +111,5 @@ export function useDoneTask() {
     return dispatch(actions);
   }
 
-  return [{ status, list: done }, doneDispatch] as const;
+  return [{ status, tasks: done }, doneDispatch] as const;
 }

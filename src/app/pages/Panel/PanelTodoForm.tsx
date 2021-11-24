@@ -23,17 +23,16 @@ export default function PanelTodoForm(props: FormProps) {
   const [input, setInput] = useLocalStorageState('another-todo-list:input', '');
   const [todo] = useTodoTask();
   const [done] = useDoneTask();
+  const placeholder = generatePlaceholder(todo.tasks.length, done.tasks.length);
 
-  const placeholder = generatePlaceholder(todo.list.length, done.list.length);
+  function handleInputChange(description: string) {
+    setInput(description);
+  }
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>, description: string) {
     event.preventDefault();
     onSubmit(description);
     setInput('');
-  }
-
-  function handleInputChange(description: string) {
-    setInput(description);
   }
 
   return (
