@@ -59,18 +59,19 @@
 
 Project is a to-do list app, which you can use on your phone or desktop.
 
-
 ## Goals
 
 The goals of this project were:
-- Build an app with a focus on accessibility, cover the bases and learn in the process.
+
+- Build an app with a focus on accessibility.
 - Develop my first app using Test Driven Development (TDD).
-- Develop an efficient pattern for using context with [TypeScript](https://www.typescriptlang.org/), creating a global state in combination with useReducer and custom hooks.
+- Develop an efficient pattern for using `React.Context` with [TypeScript](https://www.typescriptlang.org/), creating a global state in combination with `React.useReducer` and custom hooks.
 
 ## Features
 
 The main features of the project are:
-- Add, finish, delete and undo task.
+
+- Add, finish, delete and undo tasks.
 - Delete all finish task.
 - Accessibility.
 - Saving actions on local storage.
@@ -124,7 +125,6 @@ This project is under the [MIT license](https://github.com/danieljpgo/another-to
 <div>Released in 2021.</div>
 
 Make with ❤️ by [Daniel Jorge](https://github.com/danieljpgo)
-
 
 <!-- TODO
 index.integration.test (refatorar) -->

@@ -1,5 +1,6 @@
-import Checkbox, { CheckboxProps } from '../Checkbox/Checkbox';
 import Text from '../Text/Text';
+import Checkbox from '../Checkbox/Checkbox';
+import type { CheckboxProps } from '../Checkbox/Checkbox';
 
 type CheckboxFieldProps = CheckboxProps & {
   children: string;
